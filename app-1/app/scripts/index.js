@@ -1,4 +1,5 @@
-'use strict';
+/*jslint node: true */
+"use strict";
 document.addEventListener('DOMContentLoaded', function() {
   var h1 = document.getElementsByTagName('h1');
   if (h1.length > 0) {

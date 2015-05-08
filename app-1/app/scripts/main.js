@@ -1,4 +1,5 @@
-'use strict';
+/*jslint node: true */
+"use strict";
 
 // Listens for the app launching then creates the window
 chrome.app.runtime.onLaunched.addListener(function() {
