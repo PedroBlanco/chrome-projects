@@ -327,13 +327,13 @@ module.exports = function (grunt) {
   grunt.registerTask('debug', function (platform) {
     var watch = grunt.config('watch');
     platform = platform || 'chrome';
-    
+
 
     // Configure style task for debug:server task
     if (platform === 'server') {
       watch.styles.tasks = ['newer:copy:styles'];
       watch.styles.options.livereload = false;
-      
+
     }
 
     // Configure updated watch task

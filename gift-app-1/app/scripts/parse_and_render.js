@@ -1,209 +1,10 @@
-/*jslint node: true */
-"use strict";
-
-var test_function = function test_function ( _where ) {
-  var brand = document.getElementById('navbar_brand_gift');
-  if ( brand !== null ) {
-    var textoInicial = 'GIFT Format Editor ¡APP! - ' + _where;
-    brand.innerText = textoInicial;
-  }
-}
-
-// Listens for the app launching then creates the window
-chrome.app.runtime.onLaunched.addListener(function() {
-  var width = 600;
-  var height = 400;
-
-  chrome.app.window.create('index.html', {
-    id: 'main',
-    bounds: {
-      width: width,
-      height: height,
-      left: Math.round((screen.availWidth - width) / 2),
-      top: Math.round((screen.availHeight - height)/ 2)
-    }
-  });
-
-  test_function ( 'main.js');
-  console.log ( 'Running main.js' );
-
-  var texto = document.getElementById('text1');
-  if ( texto !== null ) {
-    var textoInicial = '// Comentario \n::T4::Q1\n\n\n';
-    texto.innerText = textoInicial;
-  }
+/* _jshint ignore: start */
+/* jshint camelcase: false */
+/* jshint multistr: false */
+'use strict';
 
 
-  $('#button-process').click (function() {
-    var mensaje = peg_parser.parse($('#text1').text() );
-    var resultado = document.getElementById('text2');
-    resultado.innerText = 'Titulo: ' + mensaje[0].Title+ '\n\nComentario: ' + mensaje[0].Comment+ '\n\nPregunta: '+ mensaje[0].Text.Question+ '\n\nRespuesta: &lt;' + mensaje[0].Text.Answer + '&gt;';
-
-    console.debug (mensaje[0]);
-    console.debug (resultado);
-  });
-
-
-  $('#button_example_1').click ( function () {parseExample(1);} );
-  $('#button_example_2').click ( function () {parseExample(2);} );
-  $('#button_example_3').click ( function () {parseExample(3);} );
-  $('#button_example_4').click ( function () {parseExample(4);} );
-  $('#button_example_extra').click ( function () {parseExample('extra');} );
-
-
-  $(function() {
-  $( '#accordion1' )
-    .accordion({
-      header: '> div > div.acc_title',
-      collapsible: true,
-      heightStyle: 'content'
-    })
-    .sortable({
-      axis: 'y',
-  //    handle: 'div.acc_title',
-      handle: 'span.ui-accordion-header-icon',
-      stop: function( event, ui ) {
-        // IE doesn't register the blur when sorting
-        // so trigger focusout handlers to remove .ui-state-focus
-        ui.item.children( 'div.acc_title' ).triggerHandler( 'focusout' );
-
-        // Refresh accordion to handle new order
-        $( this ).accordion( 'refresh' );
-      }
-    });
-  });
-
-  $(function() {
-  $( '#accordion2' )
-    .accordion({
-      header: '> div > div.acc_title',
-      collapsible: true,
-      heightStyle: 'content'
-    })
-    .sortable({
-      axis: 'y',
-  //    handle: 'div.acc_title',
-      handle: 'span.ui-accordion-header-icon',
-      stop: function( event, ui ) {
-        // IE doesn't register the blur when sorting
-        // so trigger focusout handlers to remove .ui-state-focus
-        ui.item.children( 'div.acc_title' ).triggerHandler( 'focusout' );
-
-        // Refresh accordion to handle new order
-        $( this ).accordion( 'refresh' );
-      }
-    });
-  });
-
-  var PARSE_DEBUG = false;
-
-  if ( PARSE_DEBUG ) {
-    var GROWL_DELAY = 0;
-  } else {
-    var GROWL_DELAY = 3000;
-  }
-
-
-  if ( $('#text_gift_input' ).val() === '' ) {
-    $('#text_gift_input' ).val( '// Tipo: fill in the blanks - end\n::T1a::Two plus two\nequals {=four =4}\n\n// Tipo: fill in the blanks - middle\n::T1b::Two plus {=two =2}\nequals four.\n\n// Tipo: fill in the blanks - start\n::T1c::{=Two =2} plus two\nequals four.\n\n// Tipo: matching\n::Food for animals:: Which animal eats which food?\n{ =cat -> cat food =dog -> dog food =fish -> fish food }\n\n// Tipo: description/instructions (not really a question)\n::Descripción del examen::Este es un examen\nde prueba en el que no se pueden usar ni\nlápiz ni papel\n\n// Tipo essay\n::Opinión sobre texto de relleno::Escriba su\nopinión sobre si el texto de relleno\nllamado "Lorem ipsum dolor" debería actualizarse a\nlos tiempos o debería seguir intacto\n{}\n\n// Tipo: True/false\n::Lengua - codos::\n¿Puede usted llegar con su lengua a\ncualquiera de sus dos codos?\n{F}\n\n// Tipo: math tolerance question\n::Platos de un menú::¿Cuántos platos\ntiene un menú del día? {#2:1}\n\n// Tipo: math range question\n::Entre 3 y 7::Dígame un número entre\n3 y 7 {#3..7}\n' );
-  }
-
-
-  $('#button_gift_input').click( function () {
-    try {
-      parseText('#text_gift_input', '#accordion1' );
-    } catch ( myException ) {
-      if ( PARSE_DEBUG ) {
-        console.error ('Exception caught: ' + myException );
-      }
-      $.bootstrapGrowl( '<strong>Exception caught</strong>: ' +  myException, {
-        type: 'danger',
-        align: 'center',
-        width: 'auto',
-        delay: GROWL_DELAY
-      } );
-    }
-  } );
-
-
-});
-
-function parseExample ( nExample )
-{
-  var _end = {'state':'not_begun', 'message':'Parsing not begun.'};
-  var _origen = $('#example_text_' + nExample).text();
-  switch (jQuery.type(_origen)) {
-    case 'undefined':
-    _end.state = 'error';
-    _end.message = '#example_text_' + nExample + ' is undefined.' ;
-      break;
-    case 'null':
-    _end.state = 'error';
-    _end.message = '#example_text_' + nExample + ' is null.';
-      break;
-    case 'string':
-      if (_origen.length > 0) {
-        var _mensaje;
-        try {
-          _mensaje = peg_parser.parse (_origen );
-        } catch (e) {
-          if (e instanceof SyntaxError) {
-            console.error ('SyntaxError exception.');
-            _end.state = 'error';
-            _end.message = 'Error: '+_mensaje.message;
-          } else {
-            console.error ('Unknown exception.');
-            _end.state = 'error';
-            _end.message = 'Unrecognized exception.';
-          }
-        }
-        if ( _mensaje.name !== 'SyntaxError' ) {
-          var _texto = 'Titulo: "' + _mensaje[0].Title+ '"\n\nComentario: "' + _mensaje[0].Comment+ '"\n\nPregunta: "'+ _mensaje[0].Text.Question+ '"\n\nRespuesta: "' + _mensaje[0].Text.Answer + '"';
-          $('#example_dest_' + nExample ).text( _texto );
-          _end.state = 'success';
-          _end.message = 'Convirtiendo (#example_text_' + nExample + ') ' + _origen + '" a "' + _texto + '"';
-        } else {
-          _end.state = 'error';
-          _end.message = _mensaje.message;
-        }
-      } else {
-        _end.state = 'warning';
-        _end.message = '#example_text_' + nExample + ' has 0 length.';
-      }
-      break;
-    default:
-      _end.state = 'error';
-      _end.message = '#example_text_' + nExample + ' is ' + jQuery.type(_origen);
-  }
-
-  switch (_end.state) {
-    case 'success':
-      console.info ( _end.message );
-      $('#example_'+nExample+' .alert').addClass('alert-success fade in').show().html('<strong>Success</strong>: ' + _end.message);
-      break;
-    case 'warning':
-      console.warn ( _end.message );
-      $('#example_'+nExample+' .alert').addClass('alert-warning fade in').show().html('<strong>Warning</strong>: ' + _end.message);
-      break;
-    case 'error':
-      console.error ( _end.message );
-      $('#example_'+nExample+' .alert').addClass('alert-error fade in').show().html('<strong>Error</strong>: ' + _end.message);
-      break;
-    case 'not_begun':
-      console.error ( _end.message );
-      $('#example_'+nExample+' .alert').addClass('alert-error fade in').show().html('<strong>Error</strong>: ' + _end.message);
-      break;
-    default:
-      console.error ( 'Undefined error!' );
-      $('#example_'+nExample+' .alert').addClass('alert-error fade in').show().html('<strong>Error</strong>: Undefined error!');
-  }
-
-
-}
-
-
-
-function parseText ( selectorText, _dest )
+var parseText = function parseText ( selectorText, _dest )
 {
   var _end = {'state':'not_begun', 'message':'Parsing not begun.'};
   var _origen = $(selectorText).val().trim();
@@ -315,7 +116,7 @@ function parseText ( selectorText, _dest )
 }
 
 
-function render_questions ( _qs, _dest )
+var render_questions = function render_questions ( _qs, _dest )
 {
   if ( _dest === undefined ) {
   _dest = '#accordion1';
@@ -364,7 +165,7 @@ function render_questions ( _qs, _dest )
 }
 
 
-function detect_question_type ( _q )
+var detect_question_type = function detect_question_type ( _q )
 {
   var _detected = false;
 
@@ -450,7 +251,7 @@ function detect_question_type ( _q )
 }
 
 
-function render_description ( _q, _d )
+var render_description = function render_description ( _q, _d )
 {
   if ( PARSE_DEBUG ) {
     console.log ( '--- Rendering description' );
@@ -459,6 +260,7 @@ function render_description ( _q, _d )
   var _rendered_question = {
     type: 'Descripción',
     title: _q.Title,
+    comment: _q.Comment.join ( '<br/>'),
     html: '' };
 
   _rendered_question.html = '<form class="form-inline" role="form">';
@@ -473,7 +275,7 @@ function render_description ( _q, _d )
 }
 
 
-function render_essay ( _q, _d )
+var render_essay = function render_essay ( _q, _d )
 {
   if ( PARSE_DEBUG ) {
     console.log ( '--- Rendering essay' );
@@ -482,6 +284,7 @@ function render_essay ( _q, _d )
   var _rendered_question = {
     type: 'Redacción',
     title: _q.Title,
+    comment: _q.Comment.join ( '<br/>'),
     html: '' };
 
   _rendered_question.html = '<form class="form-inline" role="form">';
@@ -497,8 +300,7 @@ function render_essay ( _q, _d )
 }
 
 
-
-function render_true_false ( _q, _d )
+var render_true_false = function render_true_false ( _q, _d )
 {
   if ( PARSE_DEBUG ) {
     console.log ( '--- Rendering true/false' );
@@ -507,6 +309,7 @@ function render_true_false ( _q, _d )
   var _rendered_question = {
     type: 'Verdadero/Falso',
     title: _q.Title,
+    comment: _q.Comment.join ( '<br/>'),
     html: '' };
 
   _rendered_question.html = '<form class="form-inline" role="form">';
@@ -528,8 +331,7 @@ function render_true_false ( _q, _d )
 }
 
 
-
-function render_numeric ( _q, _d )
+var render_numeric = function render_numeric ( _q, _d )
 {
   if ( PARSE_DEBUG ) {
     console.log ( '--- Rendering numeric ' + _d.type );
@@ -538,6 +340,7 @@ function render_numeric ( _q, _d )
   var _rendered_question = {
     type: ( ( _d.type == 'numeric-tolerance')?'Tolerancia numérica':'Rango numérico'),
     title: _q.Title,
+    comment: _q.Comment.join ( '<br/>'),
     html: '' };
 
   _rendered_question.html = '<form class="form-inline" role="form">';
@@ -560,7 +363,7 @@ function render_numeric ( _q, _d )
 }
 
 
-function render_matching ( _q, _d )
+var render_matching = function render_matching ( _q, _d )
 {
   if ( PARSE_DEBUG ) {
     console.log ( '--- Rendering matching' );
@@ -569,6 +372,7 @@ function render_matching ( _q, _d )
   var _rendered_question = {
     type: 'Emparejar',
     title: _q.Title,
+    comment: _q.Comment.join ( '<br/>'),
     html: '' };
 
   _rendered_question.html = '<form class="form-inline" role="form">';
@@ -590,7 +394,7 @@ function render_matching ( _q, _d )
 }
 
 
-function render_fill_blank ( _q, _d )
+var render_fill_blank = function render_fill_blank ( _q, _d )
 {
   if ( PARSE_DEBUG ) {
     console.log ( '--- Rendering fill blank - ' + JSON.stringify ( _q.Text.Question ) );
@@ -599,6 +403,7 @@ function render_fill_blank ( _q, _d )
   var _rendered_question = {
     type: 'Hueco',
     title: _q.Title,
+    comment: _q.Comment.join ( '<br/>'),
     html: '' };
 
   _rendered_question.html = '<form class="form-inline" role="form">';
@@ -637,13 +442,17 @@ function render_fill_blank ( _q, _d )
   _rendered_question.html += '</div>';
   _rendered_question.html += '</form>';
 
+  // for ( var _c in _q.Comment ) {
+  //   console.debug ( '+++ Comentario: ' + _q.Comment[_c] );
+  // }
+
   return new_accordion_question ( _rendered_question );
 }
 
 
-function new_accordion_question ( _rq )
+var new_accordion_question = function new_accordion_question ( _rq )
 {
-  var _new_question = $('<div class="group"><div class="acc_title"><span>' +  _rq.title + '</span><span class="pull-right label label-default">'+ _rq.type + '</span></div><div>' + _rq.html + '</div></div>' );
+  var _new_question = $('<div class="group"><div class="acc_title"><span class="question-title">' +  _rq.title + '</span><span class="pull-right label label-default question-type">'+ _rq.type + '</span></div><div><p class="text-info question-comment">' + _rq.comment + '</p><br/><div class="question-body">' + _rq.html + '</div></div></div>' );
 
   return _new_question;
 }

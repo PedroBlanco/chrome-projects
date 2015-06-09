@@ -1,6 +1,11 @@
 {
   "name": "gift-app-1",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "jquery": "~2.1.4",
+    "jqueryui": "~1.11.4",
+    "modernizr": "~2.8.3"
+  },
   "devDependencies": {}
 }

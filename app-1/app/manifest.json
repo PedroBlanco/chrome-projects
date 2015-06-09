@@ -1,7 +1,7 @@
 {
-  	"name": "__MSG_appName__",
-  	"description": "__MSG_appDescription__",
-  	"version": "1",
+  	"name": "GIFT Format Editor",
+  	"description": "Editor for questions from Moodle questions banks in GIFT Format",
+  	"version": "0.0.1",
   	"manifest_version": 2,
   	"default_locale": "en",
   	"permissions": [
@@ -20,8 +20,8 @@
   		"<all_urls>"
   	],
   	"icons": {
-  		"16": "images/icon-16.png",
-  		"128": "images/icon-128.png"
+  		"16": "images/icon-16b.png",
+  		"128": "images/icon-128b.png"
   	},
   	"app": {
   		"background": {
@@ -30,12 +30,5 @@
   				"scripts/chromereload.js"
   			]
   		}
-  	},
-  	"file_browser_handlers": {
-  		"id": "upload",
-  		"default_title": "File browser",
-  		"file_filters": [
-  			"filesystem:*.*"
-  		]
   	}
   }

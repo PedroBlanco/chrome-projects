@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= config.app %>/scripts/{,*/}*.js'],
-        tasks: ['jshint'],
+        tasks: [/*'jshint'*/],
         options: {
           livereload: true
         }
@@ -120,19 +120,19 @@ module.exports = function (grunt) {
       }
     },
 
-    // Make sure code styles are up to par and there are no obvious mistakes
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
-      },
-      all: [
-        'Gruntfile.js',
-        '<%= config.app %>/scripts/{,*/}*.js',
-        '!<%= config.app %>/scripts/vendor/*',
-        'test/spec/{,*/}*.js'
-      ]
-    },
+    // // Make sure code styles are up to par and there are no obvious mistakes
+    // jshint: {
+    //   options: {
+    //     jshintrc: '.jshintrc',
+    //     reporter: require('jshint-stylish')
+    //   },
+    //   all: [
+    //     'Gruntfile.js',
+    //     '<%= config.app %>/scripts/{,*/}*.js',
+    //     '!<%= config.app %>/scripts/vendor/*',
+    //     'test/spec/{,*/}*.js'
+    //   ]
+    // },
 
     // Mocha testing framework configuration options
     mocha: {
@@ -327,13 +327,13 @@ module.exports = function (grunt) {
   grunt.registerTask('debug', function (platform) {
     var watch = grunt.config('watch');
     platform = platform || 'chrome';
-    
+
 
     // Configure style task for debug:server task
     if (platform === 'server') {
       watch.styles.tasks = ['newer:copy:styles'];
       watch.styles.options.livereload = false;
-      
+
     }
 
     // Configure updated watch task
@@ -367,7 +367,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
+    // 'newer:jshint',
     'test',
     'build'
   ]);
