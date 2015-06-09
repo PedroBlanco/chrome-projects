@@ -10,3 +10,12 @@ var test_growl = function test_growl ()
     } );
   });
 }
+
+var test_growl_2 = function test_growl_2 ()
+{
+  $.bootstrapGrowl( '<strong>GROWL!!!</strong>', {
+    type: 'info',
+    align: 'center',
+    width: 'auto'
+  } );
+}
