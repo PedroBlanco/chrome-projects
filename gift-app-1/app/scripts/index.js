@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (h1.length > 0) {
     h1[0].innerText = h1[0].innerText + ' \'Allo!';
   }
-  
-  $('#contenedor').html('Prueba de jquery!');
-  
-  
+
+  $('#contenedor').html($('#contenedor').html() + '<p>Prueba de jquery!</p><br>');
+
+  test_growl ();
 }, false);

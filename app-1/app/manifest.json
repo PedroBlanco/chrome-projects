@@ -20,8 +20,8 @@
   		"<all_urls>"
   	],
   	"icons": {
-  		"16": "images/icon-16.png",
-  		"128": "images/icon-128.png"
+  		"16": "images/icon-16b.png",
+  		"128": "images/icon-128b.png"
   	},
   	"app": {
   		"background": {
