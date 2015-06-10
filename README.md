@@ -13,6 +13,9 @@ El proyecto más desarrollado es una prueba de portabilidad de https://github.co
 5. Debería aparecer una nueva entrada en la páginas de extensiones (con el fondo en gris).
 6. Para ejecutar la aplicación, pulsamos (normalmente en una pestaña nueva) en la barra de marcadores el botón de "Aplicaciones" (con un icono de 3x3 puntos cuadrados de colores), o podemos escribir en la barra de direcciones ```chrome://apps```. Debería aparecer la aplicación "GIFT Editor".
 
+Para más información sobre añadir extensiones foráneas:
+*  https://support.google.com/chrome_webstore/answer/2664769?p=crx_warning&rd=1
+
 ## Uso
 
 Por el momento la aplicación contiene muchos elementos que no hacen nada.
