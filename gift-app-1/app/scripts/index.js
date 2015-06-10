@@ -26,5 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   events_init ();
 
+  modal_events_init ();
 
 }, false);

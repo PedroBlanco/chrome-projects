@@ -6,15 +6,20 @@ El proyecto más desarrollado es una prueba de portabilidad de https://github.co
 
 ## Instalación
 
-1. Descargar [gift app 1-4.crx](https://github.com/PedroBlanco/chrome-projects/blob/master/gift-app-1/package/gift%20app%201-4.crx?raw=true) (es la versión actual).
+1. Descargar [gift app 1-5.crx](https://github.com/PedroBlanco/chrome-projects/blob/master/gift-app-1/package/gift%20app%201-5.crx?raw=true) (es la versión actual).
 2. Abrir en Google Chrome (o Chromium) la ventana de extensiones, mediante el menú "Más herramientas" -> "Extensiones", o introduciendo en una pestaña nueva la dirección ```chrome://extensions/```
-3. Arrastrar el archivo ```gift app 1-4.crx``` que nos hemos descargado al interior de esta pestaña.
+3. Arrastrar el archivo ```gift app 1-5.crx``` que nos hemos descargado al interior de esta pestaña.
 4. En la pequeña ventana emergente que nos aparece "Instalar nueva aplicación", pulsar sobre "Añadir".
 5. Debería aparecer una nueva entrada en la páginas de extensiones (con el fondo en gris).
 6. Para ejecutar la aplicación, pulsamos (normalmente en una pestaña nueva) en la barra de marcadores el botón de "Aplicaciones" (con un icono de 3x3 puntos cuadrados de colores), o podemos escribir en la barra de direcciones ```chrome://apps```. Debería aparecer la aplicación "GIFT Editor".
 
 Para más información sobre añadir extensiones foráneas:
 *  https://support.google.com/chrome_webstore/answer/2664769?p=crx_warning&rd=1
+
+### Actualización
+
+Para actualizar la aplicación sólo hay que seguir los pasos 1-3, pues tras arrastrar el nuevo archivo la aplicación se actualiza automáticamente.
+
 
 ## Uso
 
