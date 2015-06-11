@@ -17,606 +17,965 @@
     <!-- endbuild -->
 </head>
 <body >
-<div class="container-fluid">
+  <div class="container-fluid">
 
-  <div class="row nav-bar-row">
-  <div class="navbar-header">
-  <a class="navbar-brand" href="/">GIFT Format Editor</a>
-</div>
-<div class="collapse navbar-collapse" id="myNavbar">
-  <ul class="nav navbar-nav">
-    <li><a href="/">Home</a></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Questions
-      <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Create</a></li>
-        <li><a href="#">Edit</a></li>
-        <li><a href="#">Validate</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Groups
-      <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Create</a></li>
-        <li><a href="#">Edit</a></li>
-        <li><a href="#">Validate</a></li>
-      </ul>
-    </li>
-    <li class="active"><a href="#">Misc</a></li>
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-    <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-  </ul>
-</div>
+    <div class="row nav-bar-row">
+    <div class="navbar-header">
+    <a class="navbar-brand" href="/"><img src="images/gift_logo.png"/></a>
   </div>
-
-  <div class="row">
-
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Questions
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Create</a></li>
+          <li><a href="#">Edit</a></li>
+          <li><a href="#">Validate</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Groups
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Create</a></li>
+          <li><a href="#">Edit</a></li>
+          <li><a href="#">Validate</a></li>
+        </ul>
+      </li>
+      <li class="active"><a href="#">Misc</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
   </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-  <div id='left-panel' class="left-panel center-block">
-    <button type="button" id="hide-left-panel" class="btn btn-info" style="float: left;">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </button>
-    <h3 class="text-info">Texto GIFT a procesar</h3>
-    <textarea class="form-control mono" id="text_gift_input" cols="30" rows="10"></textarea>
-    <br/>
-    <button class="form-control btn btn-primary" type="button" id="button_gift_input">
-      <span class="glyphicon glyphicon-forward"></span>&nbsp;Convertir GIFT a preguntas&nbsp;
-      <span class="glyphicon glyphicon-forward"></span>
-    </button>
-    <br/><br/>
-    <button class="form-control btn btn-primary" type="button" id="button_gift_output">
-      <span class="glyphicon glyphicon-backward"></span>&nbsp;Convertir preguntas a GIFT&nbsp;
-      <span class="glyphicon glyphicon-backward"></span>
-    </button>
-  </div>
-</div>
-    <div class="col-sm-4">
-  <div id='center-panel' class="center-panel center-block">
-    <button type="button" id="show-left-panel" class="btn btn-info" style="float: left; display: none;">
-      GIFT<span class="glyphicon glyphicon-chevron-right"></span>
-    </button>
-    <button type="button" id="show-right-panel" class="btn btn-info" style="float: right; display: none;">
-      <span class="glyphicon glyphicon-chevron-left"></span>Categorías
-    </button>
-    <div class="dropdown dropdown-questions-operations">
-      <a id="dropdown_questions" role="button" data-toggle="dropdown" class="btn btn-info" data-target="#" href="#">
-        <span class="glyphicon glyphicon-tasks"></span>
-      </a>
-      <!-- Multi-level dropdown from http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 -->
-      <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-        <li class="dropdown-submenu">
-          <a tabindex="-1" href="#"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Añadir...</a>
-          <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#" id="add-question-description">Descripción</a></li>
-            <li><a tabindex="-1" href="#" id="add-question-essay">Redacción</a></li>
-            <li class="dropdown-submenu">
-              <a href="#">Rellenar un hueco</a>
-              <ul class="dropdown-menu">
-                <li><a href="#" id="add-question-fill-blank-start">Al principio</a></li>
-                <li><a href="#" id="add-question-fill-blank-middle">Enmedio</a></li>
-              	<li><a href="#" id="add-question-fill-blank-end">Al final</a></li>
-              </ul>
-            </li>
-            <li><a tabindex="-1" href="#" id="add-question-matching">Emparejar</a></li>
-            <li><a tabindex="-1" href="#" id="add-question-true-false">Verdadero/Falso</a></li>
-            <li class="dropdown-submenu">
-              <a href="#">Numérica</a>
-              <ul class="dropdown-menu">
-                <li><a href="#" id="add-question-numeric-range">Con rango</a></li>
-                <li><a href="#" id="add-question-numeric-tolerance">Con tolerancia</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="divider"></li>
-        <li class="dropdown-submenu">
-          <a tabindex="-1" href="#"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar...</a>
-          <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#" id="remove-all-questions">Todas las preguntas</a></li>
-            <li><a tabindex="-1" href="#">Las preguntas seleccionadas</a></li>
-          </ul>
-        </li>
-      </ul>
     </div>
-    <h2 class="text-info">Lista de preguntas</h2><br>
-    <div id="accordion1" class="panel-group">
-      <!-- <div class="group">
-        <div class="acc_title">
-            <span>Título: "Pregunta 1"</span>
-            <span class="pull-right label label-default">Tipo 1</span>
+
+    <div class="row">
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+    <div id='left-panel' class="left-panel center-block">
+      <button type="button" id="hide-left-panel" class="btn btn-info" style="float: left;">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </button>
+      <h3 class="text-info">Texto GIFT a procesar</h3>
+      <textarea class="form-control mono" id="text_gift_input" cols="30" rows="10"></textarea>
+      <br/>
+      <button class="form-control btn btn-primary" type="button" id="button_gift_input">
+        <span class="glyphicon glyphicon-forward"></span>&nbsp;Convertir GIFT a preguntas&nbsp;
+        <span class="glyphicon glyphicon-forward"></span>
+      </button>
+      <br/><br/>
+      <button class="form-control btn btn-primary" type="button" id="button_gift_output">
+        <span class="glyphicon glyphicon-backward"></span>&nbsp;Convertir preguntas a GIFT&nbsp;
+        <span class="glyphicon glyphicon-backward"></span>
+      </button>
+    </div>
+  </div>
+      <div class="col-sm-4">
+    <div id='center-panel' class="center-panel center-block">
+      <button type="button" id="show-left-panel" class="btn btn-info" style="float: left; display: none;">
+        GIFT<span class="glyphicon glyphicon-chevron-right"></span>
+      </button>
+      <button type="button" id="show-right-panel" class="btn btn-info" style="float: right; display: none;">
+        <span class="glyphicon glyphicon-chevron-left"></span>Categorías
+      </button>
+      <div class="dropdown dropdown-questions-operations">
+        <a id="dropdown_questions" role="button" data-toggle="dropdown" class="btn btn-info" data-target="#" href="#">
+          <span class="glyphicon glyphicon-tasks"></span>
+        </a>
+        <!-- Multi-level dropdown from http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 -->
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+          <li class="dropdown-submenu">
+            <a tabindex="-1" href="#"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Añadir...</a>
+            <ul class="dropdown-menu">
+              <li><a tabindex="-1" href="#" id="add-question-description">Descripción</a></li>
+              <li><a tabindex="-1" href="#" id="add-question-essay">Redacción</a></li>
+              <li class="dropdown-submenu">
+                <a href="#">Rellenar un hueco</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" id="add-question-fill-blank-start">Al principio</a></li>
+                  <li><a href="#" id="add-question-fill-blank-middle">Enmedio</a></li>
+                	<li><a href="#" id="add-question-fill-blank-end">Al final</a></li>
+                </ul>
+              </li>
+              <li><a tabindex="-1" href="#" id="add-question-matching">Emparejar</a></li>
+              <li><a tabindex="-1" href="#" id="add-question-true-false">Verdadero/Falso</a></li>
+              <li class="dropdown-submenu">
+                <a href="#">Numérica</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" id="add-question-numeric-range">Con rango</a></li>
+                  <li><a href="#" id="add-question-numeric-tolerance">Con tolerancia</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li class="dropdown-submenu">
+            <a tabindex="-1" href="#"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar...</a>
+            <ul class="dropdown-menu">
+              <li><a tabindex="-1" href="#" id="remove-all-questions">Todas las preguntas</a></li>
+              <li><a tabindex="-1" href="#" id="remove-selected-questions">Las preguntas seleccionadas</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <h2 class="text-info">Lista de preguntas</h2><br>
+      <div id="accordion1" class="panel-group">
+        <!-- <div class="group">
+          <div class="acc_title">
+              <span>Título: "Pregunta 1"</span>
+              <span class="pull-right label label-default">Tipo 1</span>
+          </div>
+          <div>
+            <p class="text-info question-comment">
+              Comentario
+            </p>
+            Pregunta
+          </div>
+        </div> -->
+      </div>
+      <div id="accordion1-empty" class="empty-place-info center-block text-info" style="display: none;">
+        <br><p>Aquí se muestran las preguntas para su gestión</p><br>
+      </div>
+    </div>
+  </div>
+      <div class="col-sm-4">
+    <div id='right-panel' class="right-panel center-block">
+      <button type="button" id="hide-right-panel" class="btn btn-info" style="float: right;">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </button>
+      <h3 class="text-info">Lista de categorías</h3>
+      <div id="accordion2">
+        <div class="group">
+          <div class="acc_title">
+              <span>Título: "Categoría 1"</span>
+              <span class="pull-right label label-default">Tipo 1</span>
+          </div>
+          <div>
+            <ul>
+              <li>Pregunta 1</li>
+              <li>Pregunta 2</li>
+              <li>Pregunta 3</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <p class="text-info question-comment">
-            Comentario
-          </p>
-          Pregunta
+        <div class="group">
+          <div class="acc_title">
+              <span>Título: "Categoría 2"</span>
+              <span class="pull-right label label-default">Tipo 2</span>
+          </div>
+          <div>
+            <ul>
+              <li>Pregunta 4</li>
+              <li>Pregunta 5</li>
+              <li>Pregunta 6</li>
+            </ul>
+          </div>
         </div>
-      </div> -->
-    </div>
-    <div id="accordion1-empty" class="empty-place-info center-block text-info" style="display: none;">
-      <br><p>Aquí se muestran las preguntas para su gestión</p><br>
-    </div>
-  </div>
-</div>
-    <div class="col-sm-4">
-  <div id='right-panel' class="right-panel center-block">
-    <button type="button" id="hide-right-panel" class="btn btn-info" style="float: right;">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </button>
-    <h3 class="text-info">Lista de categorías</h3>
-    <div id="accordion2">
-      <div class="group">
-        <div class="acc_title">
-            <span>Título: "Categoría 1"</span>
-            <span class="pull-right label label-default">Tipo 1</span>
-        </div>
-        <div>
-          <ul>
-            <li>Pregunta 1</li>
-            <li>Pregunta 2</li>
-            <li>Pregunta 3</li>
-          </ul>
+        <div class="group">
+          <div class="acc_title">
+              <span>Título: "Categoría 3"</span>
+              <span class="pull-right label label-default">Tipo 3</span>
+          </div>
+          <div>
+            <ul>
+              <li>Pregunta 7</li>
+              <li>Pregunta 8</li>
+              <li>Pregunta 9</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="group">
-        <div class="acc_title">
-            <span>Título: "Categoría 2"</span>
-            <span class="pull-right label label-default">Tipo 2</span>
+      <br/>
+      <div id="test_destination"></div>
+      <br/>
+    </div>
+  </div>
+    </div>
+
+    <div class="row">
+    <footer class="col-sm-12">
+    <div class="col-sm-3 center-block">
+        <ul>
+          <li class="footer_title">informaci&oacute;n</li>
+          <li class="footer_text"><br/></li>
+          <li class="footer_text"><a href="https://github.com/PedroBlanco/central-proyectoASIR">web del proyecto</a></li>
+          <li class="footer_text">manual de usuario</li><!-- TODO -->
+          <li class="footer_text"><a href="https://github.com/PedroBlanco/gift-editor">github</a> / <a href="https://waffle.io/pedroblanco/central-proyectoasir">waffle.io</a></li>
+          <li class="footer_text">licencia</li><!-- TODO -->
+          <li class="footer_text"><br/></li>
+          <li class="footer_text" style="font-style: italic;">&copy; Pedro Blanco Wasmer 2015 - Proyecto Integrado Mayo 2015 para I.E.S. Gran Capitán</li>
+        </ul>
+    </div>
+  </footer>
+  </div>
+
+  </div>
+
+  <div class="modal fade" id="modal_add_question_description" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Descripción</h4>
         </div>
-        <div>
-          <ul>
-            <li>Pregunta 4</li>
-            <li>Pregunta 5</li>
-            <li>Pregunta 6</li>
-          </ul>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-description">
+           <div class="form-group">
+             <label for="form-add-question-description-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-description-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-description-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-description-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-description-text">Descripción a mostrar:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-description-text" required="required" placeholder="Obligatorio">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="5" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="4" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
         </div>
       </div>
-      <div class="group">
-        <div class="acc_title">
-            <span>Título: "Categoría 3"</span>
-            <span class="pull-right label label-default">Tipo 3</span>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_add_question_essay" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Redacción</h4>
         </div>
-        <div>
-          <ul>
-            <li>Pregunta 7</li>
-            <li>Pregunta 8</li>
-            <li>Pregunta 9</li>
-          </ul>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-essay">
+           <div class="form-group">
+             <label for="form-add-question-essay-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-essay-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-essay-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-essay-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-essay-text">Texto de la pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-essay-text" required="required" placeholder="Obligatorio">
+             <br>
+             <textarea class="form-control" rows="5" disabled></textarea>
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="5" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="4" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
         </div>
       </div>
+
     </div>
-    <br/>
-    <div id="test_destination"></div>
-    <br/>
-  </div>
-</div>
   </div>
 
-  <div class="row">
-  <footer class="col-sm-12">
-  <div class="col-sm-3 center-block">
-      <ul>
-        <li class="footer_title">informaci&oacute;n</li>
-        <li class="footer_text"><br/></li>
-        <li class="footer_text"><a href="https://github.com/PedroBlanco/central-proyectoASIR">web del proyecto</a></li>
-        <li class="footer_text">manual de usuario</li><!-- TODO -->
-        <li class="footer_text"><a href="https://github.com/PedroBlanco/gift-editor">github</a> / <a href="https://waffle.io/pedroblanco/central-proyectoasir">waffle.io</a></li>
-        <li class="footer_text">licencia</li><!-- TODO -->
-        <li class="footer_text"><br/></li>
-        <li class="footer_text" style="font-style: italic;">&copy; Pedro Blanco Wasmer 2015 - Proyecto Integrado Mayo 2015 para I.E.S. Gran Capitán</li>
-      </ul>
-  </div>
-</footer>
-</div>
+  <div class="modal fade" id="modal_add_question_fill_blank_end" role="dialog">
+    <div class="modal-dialog">
 
-</div>
-
-<div class="modal fade" id="modal_add_question_description" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Descripción</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-description">
-         <div class="form-group">
-           <label for="form-add-question-description-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-description-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-description-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-description-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-description-text">Descripción a mostrar:</label>
-           <input type="text" class="form-control" id="form-add-question-description-text" required="required" placeholder="Obligatorio">
-         </div>
-       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="modal fade" id="modal_add_question_essay" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Redacción</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-essay">
-         <div class="form-group">
-           <label for="form-add-question-essay-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-essay-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-essay-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-essay-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-essay-text">Texto de la pregunta:</label>
-           <input type="text" class="form-control" id="form-add-question-essay-text" required="required" placeholder="Obligatorio">
-           <br>
-           <textarea class="form-control" rows="5" disabled></textarea>
-         </div>
-       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="modal fade" id="modal_add_question_fill_blank_end" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Rellenar hueco final</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-fill-blank-end">
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-end-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-end-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-end-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-end-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-end-text">Pregunta:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-end-text" required="required" placeholder="Obligatorio - Texto de la pregunta">
-           <br>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-end-void" required="required" placeholder="Obligatorio - Hueco de respuesta">
-         </div>
-       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="modal fade" id="modal_add_question_fill_blank_middle" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Rellenar hueco medio</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-fill-blank-middle">
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-middle-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-middle-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-middle-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-middle-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-middle-text-begin">Pregunta:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-middle-text-begin" required="required" placeholder="Obligatorio - Texto de la pregunta antes del hueco">
-           <br>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-middle-void" required="required" placeholder="Obligatorio - Hueco para respuesta">
-           <br>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-middle-text-finish" required="required" placeholder="Obligatorio - Texto de la pregunta después del hueco">
-         </div>
-       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="modal fade" id="modal_add_question_fill_blank_start" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Rellenar hueco inicial</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-fill-blank-start">
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-start-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-start-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-start-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-start-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-fill-blank-start-void">Pregunta:</label>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-start-void" required="required" placeholder="Obligatorio - Hueco de respuesta">
-           <br>
-           <input type="text" class="form-control" id="form-add-question-fill-blank-start-text" required="required" placeholder="Obligatorio - Texto de la pregunta">
-         </div>
-       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="modal fade" id="modal_add_question_matching" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Emparejar</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-matching">
-         <div class="form-group">
-           <label for="form-add-question-matching-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-matching-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-matching-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-matching-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-matching-text">Pregunta:</label>
-           <input type="text" class="form-control" id="form-add-question-matching-text" placeholder="Obligatorio" required="required">
-           <br>
-           <p class="form-control-static">Debe rellenar las tres parejas de campos:</p>
-         </div>
-         <div class="form-group">
-           <input class="input-small" type="text" id="form-add-question-matching-pair-1-1" placeholder="Pareja A" value=""/>
-           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" type="text" id="form-add-question-matching-pair-1-2" placeholder="Pareja A" value=""/>
-         </div>
-         <hr>
-         <div class="form-group">
-           <input class="input-small" type="text" id="form-add-question-matching-pair-2-1" placeholder="Pareja B" value=""/>
-           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" type="text" id="form-add-question-matching-pair-2-2" placeholder="Pareja B" value=""/>
-         </div>
-         <hr>
-         <div class="form-group">
-           <input class="input-small" type="text" id="form-add-question-matching-pair-3-1" placeholder="Pareja C" value=""/>
-           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" type="text" id="form-add-question-matching-pair-3-2" placeholder="Pareja C" value=""/>
-         </div>
-       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="modal fade" id="modal_add_question_numeric_range" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Numérica con rango</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-numeric-range">
-         <div class="form-group">
-           <label for="form-add-question-numeric-range-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-numeric-range-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-numeric-range-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-numeric-range-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-numeric-range-text">Pregunta:</label>
-           <input type="text" class="form-control" id="form-add-question-numeric-range-text" required="required" placeholder="Obligatorio">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-numeric-range-answer-begin">Inicio del rango:</label>
-           <input type="number" class="form-control" id="form-add-question-numeric-range-answer-begin" required="required" placeholder="Obligatorio">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-numeric-range-answer-finish">Final del rango:</label>
-           <input type="number" class="form-control" id="form-add-question-numeric-range-answer-finish" required="required" placeholder="Obligatorio">
-         </div>
-       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="modal fade" id="modal_add_question_numeric_tolerance" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Numérica con tolerancia</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-numeric-tolerance">
-         <div class="form-group">
-           <label for="form-add-question-numeric-tolerance-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-numeric-tolerance-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-numeric-tolerance-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-numeric-tolerance-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-numeric-tolerance-text">Pregunta:</label>
-           <input type="text" class="form-control" id="form-add-question-numeric-tolerance-text" required="required" placeholder="Obligatorio">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-numeric-tolerance-answer">Respuesta:</label>
-           <input type="number" class="form-control" id="form-add-question-numeric-tolerance-answer" required="required" placeholder="Obligatorio">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-numeric-tolerance-radius">Radio de tolerancia:</label>
-           <input type="number" class="form-control" id="form-add-question-numeric-tolerance-radius" required="required" placeholder="Obligatorio">
-         </div>
-       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="modal fade" id="modal_add_question_true_false" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Añadir pregunta: Verdadero/Falso</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form" id="form-add-question-true-false">
-         <div class="form-group">
-           <label for="form-add-question-true-false-title">Título:</label>
-           <input type="text" class="form-control" id="form-add-question-true-false-title" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-true-false-comment">Comentario:</label>
-           <input type="text" class="form-control" id="form-add-question-true-false-comment" placeholder="Opcional">
-         </div>
-         <div class="form-group">
-           <label for="form-add-question-true-false-text">Pregunta:</label>
-           <input type="text" class="form-control" id="form-add-question-true-false-text" required="required" placeholder="Obligatorio">
-         </div>
-        <div class="radio">
-          <input type="radio" name="form-add-question-true-false-optradio" id="form-add-question-true-false-optradio1" value="T">
-          <label class="control-label" for="form-add-question-true-false-optradio1">&nbsp;Verdadero</label>
-          <br/>
-          <input type="radio" name="form-add-question-true-false-optradio" id="form-add-question-true-false-optradio2" value="F">
-          <label class="control-label" for="form-add-question-true-false-optradio2">&nbsp;Falso</label>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Rellenar hueco final</h4>
         </div>
-       </form>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-fill-blank-end">
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-end-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-fill-blank-end-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-end-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-fill-blank-end-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-end-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-fill-blank-end-text" required="required" placeholder="Obligatorio - Texto de la pregunta">
+             <br>
+             <input tabindex="4" type="text" class="form-control" id="form-add-question-fill-blank-end-void" required="required" placeholder="Obligatorio - Hueco de respuesta">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="6" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="5" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
-      </div>
+
     </div>
-
   </div>
-</div>
 
-<div class="modal fade" id="modal_remove_question" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal fade" id="modal_add_question_fill_blank_middle" role="dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Eliminar pregunta</h4>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Rellenar hueco medio</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-fill-blank-middle">
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-middle-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-fill-blank-middle-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-middle-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-fill-blank-middle-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-middle-text-begin">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-fill-blank-middle-text-begin" required="required" placeholder="Obligatorio - Texto de la pregunta antes del hueco">
+             <br>
+             <input tabindex="4" type="text" class="form-control" id="form-add-question-fill-blank-middle-void" required="required" placeholder="Obligatorio - Hueco para respuesta">
+             <br>
+             <input tabindex="5" type="text" class="form-control" id="form-add-question-fill-blank-middle-text-finish" required="required" placeholder="Obligatorio - Texto de la pregunta después del hueco">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="7" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="6" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>¿Realmente desea eliminar esta pregunta?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;Eliminar</button>
-      </div>
+
     </div>
-
   </div>
-</div>
 
-<div class="modal fade" id="modal_remove_all_questions" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal fade" id="modal_add_question_fill_blank_start" role="dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-        <h4 class="modal-title">Eliminar todas las preguntas</h4>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Rellenar hueco inicial</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-fill-blank-start">
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-start-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-fill-blank-start-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-start-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-fill-blank-start-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-fill-blank-start-void">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-fill-blank-start-void" required="required" placeholder="Obligatorio - Hueco de respuesta">
+             <br>
+             <input tabindex="4" type="text" class="form-control" id="form-add-question-fill-blank-start-text" required="required" placeholder="Obligatorio - Texto de la pregunta">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="6" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="5" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>¿Realmente desea eliminar todas las preguntas de la lista?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;Eliminar</button>
-      </div>
+
     </div>
-
   </div>
-</div>
+
+  <div class="modal fade" id="modal_add_question_matching" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Emparejar</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-matching">
+           <div class="form-group">
+             <label for="form-add-question-matching-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-matching-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-matching-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-matching-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-matching-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-matching-text" placeholder="Obligatorio" required="required">
+             <br>
+             <p class="form-control-static">Debe rellenar las tres parejas de campos:</p>
+           </div>
+           <div class="form-group">
+             <input tabindex="4" class="input-small" type="text" id="form-add-question-matching-pair-1-1" placeholder="Pareja A" value=""/>
+             <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+             <input tabindex="5" class="input-small" type="text" id="form-add-question-matching-pair-1-2" placeholder="Pareja A" value=""/>
+           </div>
+           <hr>
+           <div class="form-group">
+             <input tabindex="6" class="input-small" type="text" id="form-add-question-matching-pair-2-1" placeholder="Pareja B" value=""/>
+             <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+             <input tabindex="7" class="input-small" type="text" id="form-add-question-matching-pair-2-2" placeholder="Pareja B" value=""/>
+           </div>
+           <hr>
+           <div class="form-group">
+             <input tabindex="8" class="input-small" type="text" id="form-add-question-matching-pair-3-1" placeholder="Pareja C" value=""/>
+             <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+             <input tabindex="9" class="input-small" type="text" id="form-add-question-matching-pair-3-2" placeholder="Pareja C" value=""/>
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="11" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="10" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_add_question_numeric_range" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Numérica con rango</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-numeric-range">
+           <div class="form-group">
+             <label for="form-add-question-numeric-range-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-numeric-range-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-numeric-range-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-numeric-range-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-numeric-range-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-numeric-range-text" required="required" placeholder="Obligatorio">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-numeric-range-answer-begin">Inicio del rango:</label>
+             <input tabindex="4" type="number" class="form-control" id="form-add-question-numeric-range-answer-begin" required="required" placeholder="Obligatorio">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-numeric-range-answer-finish">Final del rango:</label>
+             <input tabindex="5" type="number" class="form-control" id="form-add-question-numeric-range-answer-finish" required="required" placeholder="Obligatorio">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="7" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="6" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_add_question_numeric_tolerance" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Numérica con tolerancia</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-numeric-tolerance">
+           <div class="form-group">
+             <label for="form-add-question-numeric-tolerance-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-numeric-tolerance-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-numeric-tolerance-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-numeric-tolerance-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-numeric-tolerance-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-numeric-tolerance-text" required="required" placeholder="Obligatorio">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-numeric-tolerance-answer">Respuesta:</label>
+             <input tabindex="4" type="number" class="form-control" id="form-add-question-numeric-tolerance-answer" required="required" placeholder="Obligatorio">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-numeric-tolerance-radius">Radio de tolerancia:</label>
+             <input tabindex="5" type="number" class="form-control" id="form-add-question-numeric-tolerance-radius" required="required" placeholder="Obligatorio">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="7" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="6" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_add_question_true_false" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Añadir pregunta: Verdadero/Falso</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-add-question-true-false">
+           <div class="form-group">
+             <label for="form-add-question-true-false-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-add-question-true-false-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-true-false-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-add-question-true-false-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-add-question-true-false-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-add-question-true-false-text" required="required" placeholder="Obligatorio">
+           </div>
+          <div class="radio">
+            <input tabindex="4" type="radio" name="form-add-question-true-false-optradio" id="form-add-question-true-false-optradio1" value="T">
+            <label class="control-label" for="form-add-question-true-false-optradio1">&nbsp;Verdadero</label>
+            <br/>
+            <input tabindex="5" type="radio" name="form-add-question-true-false-optradio" id="form-add-question-true-false-optradio2" value="F">
+            <label class="control-label" for="form-add-question-true-false-optradio2">&nbsp;Falso</label>
+          </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="7" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="6" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_description" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Descripción</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-description">
+           <div class="form-group">
+             <label for="form-edit-question-description-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-description-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-description-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-description-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-description-text">Descripción a mostrar:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-description-text" required="required" placeholder="Obligatorio">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="5" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="4" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Guardar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_essay" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Redacción</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-essay">
+           <div class="form-group">
+             <label for="form-edit-question-essay-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-essay-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-essay-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-essay-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-essay-text">Texto de la pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-essay-text" required="required" placeholder="Obligatorio">
+             <br>
+             <textarea class="form-control" rows="5" disabled></textarea>
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="5" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="4" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_fill_blank_end" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Rellenar hueco final</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-fill-blank-end">
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-end-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-fill-blank-end-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-end-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-fill-blank-end-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-end-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-fill-blank-end-text" required="required" placeholder="Obligatorio - Texto de la pregunta">
+             <br>
+             <input tabindex="4" type="text" class="form-control" id="form-edit-question-fill-blank-end-void" required="required" placeholder="Obligatorio - Hueco de respuesta">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="6" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="5" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_fill_blank_middle" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Rellenar hueco medio</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-fill-blank-middle">
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-middle-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-fill-blank-middle-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-middle-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-fill-blank-middle-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-middle-text-begin">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-fill-blank-middle-text-begin" required="required" placeholder="Obligatorio - Texto de la pregunta antes del hueco">
+             <br>
+             <input tabindex="4" type="text" class="form-control" id="form-edit-question-fill-blank-middle-void" required="required" placeholder="Obligatorio - Hueco para respuesta">
+             <br>
+             <input tabindex="5" type="text" class="form-control" id="form-edit-question-fill-blank-middle-text-finish" required="required" placeholder="Obligatorio - Texto de la pregunta después del hueco">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="7" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="6" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_fill_blank_start" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Rellenar hueco inicial</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-fill-blank-start">
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-start-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-fill-blank-start-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-start-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-fill-blank-start-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-fill-blank-start-void">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-fill-blank-start-void" required="required" placeholder="Obligatorio - Hueco de respuesta">
+             <br>
+             <input tabindex="4" type="text" class="form-control" id="form-edit-question-fill-blank-start-text" required="required" placeholder="Obligatorio - Texto de la pregunta">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="6" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="5" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_matching" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Emparejar</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-matching">
+           <div class="form-group">
+             <label for="form-edit-question-matching-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-matching-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-matching-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-matching-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-matching-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-matching-text" placeholder="Obligatorio" required="required">
+             <br>
+             <p class="form-control-static">Debe rellenar las tres parejas de campos:</p>
+           </div>
+           <div class="form-group">
+             <input tabindex="4" class="input-small" type="text" id="form-edit-question-matching-pair-1-1" placeholder="Pareja A" value=""/>
+             <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+             <input tabindex="5" class="input-small" type="text" id="form-edit-question-matching-pair-1-2" placeholder="Pareja A" value=""/>
+           </div>
+           <hr>
+           <div class="form-group">
+             <input tabindex="6" class="input-small" type="text" id="form-edit-question-matching-pair-2-1" placeholder="Pareja B" value=""/>
+             <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+             <input tabindex="7" class="input-small" type="text" id="form-edit-question-matching-pair-2-2" placeholder="Pareja B" value=""/>
+           </div>
+           <hr>
+           <div class="form-group">
+             <input tabindex="8" class="input-small" type="text" id="form-edit-question-matching-pair-3-1" placeholder="Pareja C" value=""/>
+             <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+             <input tabindex="9" class="input-small" type="text" id="form-edit-question-matching-pair-3-2" placeholder="Pareja C" value=""/>
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="11" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="10" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_numeric_range" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Numérica con rango</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-numeric-range">
+           <div class="form-group">
+             <label for="form-edit-question-numeric-range-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-numeric-range-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-numeric-range-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-numeric-range-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-numeric-range-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-numeric-range-text" required="required" placeholder="Obligatorio">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-numeric-range-answer-begin">Inicio del rango:</label>
+             <input tabindex="4" type="number" class="form-control" id="form-edit-question-numeric-range-answer-begin" required="required" placeholder="Obligatorio">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-numeric-range-answer-finish">Final del rango:</label>
+             <input tabindex="5" type="number" class="form-control" id="form-edit-question-numeric-range-answer-finish" required="required" placeholder="Obligatorio">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="7" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="6" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_numeric_tolerance" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Numérica con tolerancia</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-numeric-tolerance">
+           <div class="form-group">
+             <label for="form-edit-question-numeric-tolerance-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-numeric-tolerance-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-numeric-tolerance-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-numeric-tolerance-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-numeric-tolerance-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-numeric-tolerance-text" required="required" placeholder="Obligatorio">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-numeric-tolerance-answer">Respuesta:</label>
+             <input tabindex="4" type="number" class="form-control" id="form-edit-question-numeric-tolerance-answer" required="required" placeholder="Obligatorio">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-numeric-tolerance-radius">Radio de tolerancia:</label>
+             <input tabindex="5" type="number" class="form-control" id="form-edit-question-numeric-tolerance-radius" required="required" placeholder="Obligatorio">
+           </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="7" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="6" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_edit_question_true_false" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Editar pregunta: Verdadero/Falso</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="form-edit-question-true-false">
+           <div class="form-group">
+             <label for="form-edit-question-true-false-title">Título:</label>
+             <input tabindex="1" type="text" class="form-control" id="form-edit-question-true-false-title" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-true-false-comment">Comentario:</label>
+             <input tabindex="2" type="text" class="form-control" id="form-edit-question-true-false-comment" placeholder="Opcional">
+           </div>
+           <div class="form-group">
+             <label for="form-edit-question-true-false-text">Pregunta:</label>
+             <input tabindex="3" type="text" class="form-control" id="form-edit-question-true-false-text" required="required" placeholder="Obligatorio">
+           </div>
+          <div class="radio">
+            <input tabindex="4" type="radio" name="form-edit-question-true-false-optradio" id="form-edit-question-true-false-optradio1" value="T">
+            <label class="control-label" for="form-edit-question-true-false-optradio1">&nbsp;Verdadero</label>
+            <br/>
+            <input tabindex="5" type="radio" name="form-edit-question-true-false-optradio" id="form-edit-question-true-false-optradio2" value="F">
+            <label class="control-label" for="form-edit-question-true-false-optradio2">&nbsp;Falso</label>
+          </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button tabindex="7" type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button tabindex="6" type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span>&nbsp;Editar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_remove_question" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Eliminar pregunta</h4>
+        </div>
+        <div class="modal-body">
+          <p>¿Realmente desea eliminar esta pregunta?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;Eliminar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal_remove_all_questions" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+          <h4 class="modal-title">Eliminar todas las preguntas</h4>
+        </div>
+        <div class="modal-body">
+          <p>¿Realmente desea eliminar todas las preguntas de la lista?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;Eliminar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->

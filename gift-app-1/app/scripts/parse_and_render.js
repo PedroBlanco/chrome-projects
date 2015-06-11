@@ -259,11 +259,13 @@ var detect_question_type = function detect_question_type ( _q )
 var render_description = function render_description ( _q, _d )
 {
   if ( PARSE_DEBUG ) {
-    console.log ( '--- Rendering description' );
+    console.log ( '--- Rendering description _q: ' + JSON.stringify ( _q ) );
+    console.log ( '--- Rendering description _d: ' + JSON.stringify ( _d ) );
   }
 
   var _rendered_question = {
     type: 'Descripción',
+    detected_type: _d.type,
     title: _q.Title,
     comment: _q.Comment.join ( '<br/>'),
     html: '' };
@@ -271,7 +273,7 @@ var render_description = function render_description ( _q, _d )
   _rendered_question.html = '<form class="form-inline" role="form">';
 
   _rendered_question.html += '<div class="form-group form-group-sm">';
-  _rendered_question.html +=  '<p class="form-control-static">' + _q.Text.Question + '</p><br/>';
+  _rendered_question.html +=  '<p class="form-control-static" name="question-text">' + _q.Text.Question + '</p><br/>';
   _rendered_question.html += '</div>';
 
   _rendered_question.html += '</form>';
@@ -288,6 +290,7 @@ var render_essay = function render_essay ( _q, _d )
 
   var _rendered_question = {
     type: 'Redacción',
+    detected_type: _d.type,
     title: _q.Title,
     comment: _q.Comment.join ( '<br/>'),
     html: '' };
@@ -295,7 +298,7 @@ var render_essay = function render_essay ( _q, _d )
   _rendered_question.html = '<form class="form-inline" role="form">';
 
   _rendered_question.html += '<div class="form-group form-group-sm">';
-  _rendered_question.html +=  '<p class="form-control-static">' + _q.Text.Question + '</p><br/>';
+  _rendered_question.html +=  '<p class="form-control-static" name="question-text">' + _q.Text.Question + '</p><br/>';
   _rendered_question.html +=  '<textarea class="form-control" rows="5" disabled></textarea>';
   _rendered_question.html += '</div>';
 
@@ -313,6 +316,7 @@ var render_true_false = function render_true_false ( _q, _d )
 
   var _rendered_question = {
     type: 'Verdadero/Falso',
+    detected_type: _d.type,
     title: _q.Title,
     comment: _q.Comment.join ( '<br/>'),
     html: '' };
@@ -320,13 +324,15 @@ var render_true_false = function render_true_false ( _q, _d )
   _rendered_question.html = '<form class="form-inline" role="form">';
 
   _rendered_question.html += '<div class="form-group form-group-sm">';
-  _rendered_question.html +=  '<p class="form-control-static">' + _q.Text.Question + '</p><br/>';
-  _rendered_question.html +=  '<div class="radio">';
-  _rendered_question.html +=   '<input type="radio" name="optradio1"' + ((_d.answer=='T')?' checked="checked"':'') + '>';
-  _rendered_question.html +=   '<label class="control-label" for="optradio1">Verdadero</label>';
+  _rendered_question.html +=  '<p class="form-control-static" name="question-text">' + _q.Text.Question + '</p><br/>';
+  _rendered_question.html +=  '<div class="radio" value="'+_d.answer+'">';
+  _rendered_question.html +=   '<input type="radio" name="optradio" ' +
+                                ((_d.answer=='T')?'checked="checked"':'disabled') + '>';
+  _rendered_question.html +=   '<label class="control-label">Verdadero</label>';
   _rendered_question.html +=   '<br/>';
-  _rendered_question.html +=   '<input type="radio" name="optradio2"' + ((_d.answer=='F')?' checked="checked"':'') + '>';
-  _rendered_question.html +=   '<label class="control-label" for="optradio2">Falso</label>';
+  _rendered_question.html +=   '<input type="radio" name="optradio" ' +
+                                ((_d.answer=='F')?'checked="checked"':'disabled') + '>';
+  _rendered_question.html +=   '<label class="control-label">Falso</label>';
   _rendered_question.html +=  '</div>';
   _rendered_question.html += '</div>';
 
@@ -344,6 +350,7 @@ var render_numeric = function render_numeric ( _q, _d )
 
   var _rendered_question = {
     type: ( ( _d.type == 'numeric-tolerance')?'Tolerancia numérica':'Rango numérico'),
+    detected_type: _d.type,
     title: _q.Title,
     comment: _q.Comment.join ( '<br/>'),
     html: '' };
@@ -351,15 +358,15 @@ var render_numeric = function render_numeric ( _q, _d )
   _rendered_question.html = '<form class="form-inline" role="form">';
 
   _rendered_question.html += '<div class="form-group form-group-sm">';
-  _rendered_question.html +=  '<p class="form-control-static">' + _q.Text.Question + '</p><br/>';
-  _rendered_question.html +=  '<label class="control-label" for="first">';
-  _rendered_question.html +=  ( _d.type == 'numeric-tolerance')?'':'Desde';
+  _rendered_question.html +=  '<p class="form-control-static" name="question-text">' + _q.Text.Question + '</p><br/>';
+  _rendered_question.html +=  '<label class="control-label">';
+  _rendered_question.html +=  ( _d.type === 'numeric-tolerance')?'':'Desde&nbsp;';
+  _rendered_question.html +=  '<input class="form-control" type="number" name="first" value="' + _d.answer[0] + '"/>';
   _rendered_question.html +=  '</label>';
-  _rendered_question.html +=  '<input class="form-control" type="number" id="first" value="' + _d.answer[0] + '"/>';
-  _rendered_question.html +=  '<label class="control-label" for="second">';
-  _rendered_question.html +=  ( _d.type == 'numeric-tolerance')?'con una toleracia de':'hasta';
+  _rendered_question.html +=  '<label class="control-label">';
+  _rendered_question.html +=  ( _d.type === 'numeric-tolerance')?'&nbsp;con una toleracia de&nbsp;':'&nbsp;hasta&nbsp;';
+  _rendered_question.html +=  '<input class="form-control" type="number" name="second" value="' + _d.answer[1] + '"/>';
   _rendered_question.html +=  '</label>';
-  _rendered_question.html +=  '<input class="form-control" type="number" id="second" value="' + _d.answer[1] + '"/>';
   _rendered_question.html += '</div>';
 
   _rendered_question.html += '</form>';
@@ -376,20 +383,23 @@ var render_matching = function render_matching ( _q, _d )
 
   var _rendered_question = {
     type: 'Emparejar',
+    detected_type: _d.type,
     title: _q.Title,
     comment: _q.Comment.join ( '<br/>'),
     html: '' };
 
   _rendered_question.html = '<form class="form-inline" role="form">';
   _rendered_question.html += '<div class="form-group form-group-sm">';
-  _rendered_question.html +=  '<p class="form-control-static">' + _q.Text.Question + '</p><br/>';
+  _rendered_question.html +=  '<p class="form-control-static" name="question-text">' + _q.Text.Question + '</p><br/>';
 
   var _split_pair;
   for ( var _pair in _d.answer ) {
     _split_pair = _d.answer[_pair].split('->');
-    _rendered_question.html +=  '<input class="form-control" type="text" value="' + $.trim( _split_pair[0] ) + '"/>';
-    _rendered_question.html +=  '<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>';
-    _rendered_question.html +=  '<input class="form-control" type="text" value="' + $.trim( _split_pair[1] ) + '"/>';
+    _rendered_question.html +=  '<div name="pair">';
+    _rendered_question.html +=   '<input class="form-control" type="text" value="' + $.trim( _split_pair[0] ) + '" name="first"/>';
+    _rendered_question.html +=   '<span class="glyphicon glyphicon-arrow-right" aria-hidden="true" name= "match-separator"></span>';
+    _rendered_question.html +=   '<input class="form-control" type="text" value="' + $.trim( _split_pair[1] ) + '" name="second"/>';
+    _rendered_question.html +=  '</div>';
     _rendered_question.html +=  '<hr/>';
   }
   _rendered_question.html += '</div>';
@@ -407,6 +417,7 @@ var render_fill_blank = function render_fill_blank ( _q, _d )
 
   var _rendered_question = {
     type: 'Hueco',
+    detected_type: _d.type,
     title: _q.Title,
     comment: _q.Comment.join ( '<br/>'),
     html: '' };
@@ -420,23 +431,23 @@ var render_fill_blank = function render_fill_blank ( _q, _d )
   case 'start-fill-blank':
     for ( var _x in _d.answer ) {
       // console.debug ( 'START: ' + _d.answer[_x] + ' ' + _q.Text.Question[1] );
-      _rendered_question.html +=  '<input class="form-control" type="text" value="' + _d.answer[_x] + '"/>';
+      _rendered_question.html +=  '<input class="form-control" type="text" value="' + _d.answer[_x] + '" name="blank"/>';
     }
-    _rendered_question.html +=  '<span class="form-control-static">' + _q.Text.Question[1] + '</span>';
+    _rendered_question.html +=  '<span class="form-control-static" name="question-text">' + _q.Text.Question[1] + '</span>';
     break;
   case 'inline-fill-blank':
-    _rendered_question.html +=  '<span class="form-control-static">' + _q.Text.Question[0] + '</span>';
+    _rendered_question.html +=  '<span class="form-control-static" name="question-text-first">' + _q.Text.Question[0] + '</span>';
     for ( var _x in _d.answer ) {
       // console.debug ( 'INLINE ' + _q.Text.Question[0] + _d.answer[_x] + ' ' + _q.Text.Question[1] );
-      _rendered_question.html +=  '<input class="form-control" type="text" value="' + _d.answer[_x] + '"/>';
+      _rendered_question.html +=  '<input class="form-control" type="text" value="' + _d.answer[_x] + '" name="blank"/>';
     }
-    _rendered_question.html +=  '<span class="form-control-static">' + _q.Text.Question[1] + '</span>';
+    _rendered_question.html +=  '<span class="form-control-static" name="question-text-second">' + _q.Text.Question[1] + '</span>';
     break;
   case 'end-fill-blank':
-    _rendered_question.html +=  '<span class="form-control-static">' + _q.Text.Question + '</span>';
+    _rendered_question.html +=  '<span class="form-control-static" name="question-text">' + _q.Text.Question + '</span>';
     for ( var _x in _d.answer ) {
       // console.debug ( 'END: ' + _q.Text.Question + ' ' + _d.answer[_x] );
-      _rendered_question.html +=  '<input class="form-control" type="text" value="' + _d.answer[_x] + '"/>';
+      _rendered_question.html +=  '<input class="form-control" type="text" value="' + _d.answer[_x] + '" name="blank"/>';
     }
     break;
 
@@ -460,14 +471,16 @@ var new_accordion_question = function new_accordion_question ( _rq )
   var _new_question = $(
     '<div class="group" id="' + _uniqueId ( '_question' ) + '">' +
       '<div class="acc_title">' +
-        '<span class="label label-default question-type">'+ _rq.type + '</span>' +
+        '<span class="label label-default question-type" value="' + _rq.detected_type + '">'+ _rq.type + '</span>' +
+// No podemos usar un checkbox de marca en el título porque el evento al pinchar lo recibe el acordeón y no el checkbox...
+//        '<input type="checkbox" class="question-selected-mark" name="question-selected" value="">' +
         '<span class="question-title">' + _rq.title + '</span>' +
       '</div>' +
       '<div class="question-details">' +
         '<div class="question-operations">' +
           '<div class="btn-group btn-group-justified">' +
             '<div class="btn-group">' +
-              '<button type="button" class="btn btn-info edit-question"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>' +
+              '<button type="button" class="btn btn-info edit-question-' + _rq.detected_type + '"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>' +
             '</div>' +
             '<div class="btn-group">' +
               '<button type="button" class="btn btn-danger remove-question"><span class="glyphicon glyphicon-remove"></span>&nbsp;Eliminar</button>' +
