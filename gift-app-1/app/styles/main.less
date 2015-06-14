@@ -2,78 +2,72 @@ body {
   margin-left: 1em;
   margin-right: 1.5em;
 }
-.left-panel, .center-panel, .right-panel {
+.left-panel,
+.center-panel,
+.right-panel {
   border: 3px solid #2A6496;
   border-radius: 8px;
   padding: 1em;
   margin: 1em;
 }
-
 .left-panel {
-  // background-color: aliceblue;
   margin-right: 0em;
 }
-
 .center-panel {
-  // background-color: lightgoldenrodyellow;
   margin-right: 0em;
   margin-left: 0em;
 }
-
 .right-panel {
-  // background-color: blanchedalmond;
   margin-left: 0em;
 }
-
 .left-panel h3,
 .center-panel h3,
-.right-panel h3 {
+.right-panel h3,
+.left-panel h2,
+.center-panel h2,
+.right-panel h2 {
   text-align: center;
   clear: none;
 }
-
 .btn {
   border-radius: 0px;
   border-width: 2px;
   font-weight: bold;
 }
-
 .mono {
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
 }
-
 .question-comment {
   font-style: italic;
 }
-
+div.acc_title span.question-type {
+  float: right;
+}
 footer {
   border-top: 3em solid white;
   padding-top: 1em;
   padding-right: 1em;
   background-color: #3B3B3B;
+  background-image: url('../images/bg_gris_botton.jpg');
   color: white;
 }
-
 li.footer_title {
   font-weight: bolder;
-  list-style-type:none;
+  list-style-type: none;
   text-align: center;
   color: inherit;
 }
-
 li.footer_text {
-  list-style-type:none;
+  list-style-type: none;
   text-align: left;
   color: inherit;
 }
-
 li.footer_text a {
   color: inherit;
   text-decoration: underline;
   font-weight: bold;
 }
-
 .empty-place-info {
   border: 3px dashed #2A6496;
   border-radius: 8px;
@@ -83,43 +77,116 @@ li.footer_text a {
   text-align: center;
   vertical-align: -50%;
 }
-
 .empty-place-info p {
   vertical-align: -50%;
 }
-
 .btn-info {
   color: #2A6496;
   background-color: #FFF;
   border-color: #2A6496;
 }
-
 .btn-info:hover {
   color: #39B3D7;
   background-color: #FFF;
   border-color: #39B3D7;
 }
-
-.nav-bar-row, a.navbar-brand, #myNavbar, #myNavbar a {
-    background-color: #2A6496;
-    color: white;
+.nav-bar-row,
+a.navbar-brand,
+#myNavbar,
+#myNavbar a {
+  background-color: #2A6496;
+  color: white;
 }
-
-.navbar-header, div#myNavbar {
-    /*padding-bottom: 20px;*/
-    /*background-color: rgb(66, 139, 202);*/
-    min-height: 50px;
+.navbar-header,
+div#myNavbar {
+  /*padding-bottom: 20px;*/
+  /*background-color: rgb(66, 139, 202);*/
+  min-height: 50px;
 }
-
 .nav-bar-row {
-    background-color: #2A6496;
-    color: white;
-    padding: 1em;
-    margin: 0em;
-    margin-bottom: 2em;
+  background-color: #2A6496;
+  color: white;
+  padding: 1em;
+  margin: 0em;
+  margin-bottom: 2em;
 }
-
+.navbar-brand {
+  padding: 0px;
+}
 #text_gift_input,
 #text_gift_output {
   resize: vertical;
+}
+div.acc_title span.glyphicon-move {
+  float: left;
+}
+div.acc_title span.glyphicon-remove {
+  float: right;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+.dropdown-submenu > a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #ccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover > a:after {
+  border-left-color: #fff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
+}
+.dropdown-questions-operations {
+  clear: none;
+  display: inline;
+  float: left;
+}
+.input-mir {
+  width: 20%;
+}
+.input-small {
+  width: 40%;
+}
+.input-medium {
+  width: 60%;
+}
+.input-large {
+  width: 80%;
+}
+.input-xlarge {
+  width: 100%;
+}
+.input-xxlarge {
+  width: 120%;
+}
+.question-selected-mark {
+  float: right;
 }

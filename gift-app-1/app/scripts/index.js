@@ -1,13 +1,16 @@
 'use strict';
 
-// var PARSE_DEBUG = true;
-var PARSE_DEBUG = false;
+var PARSE_DEBUG = true;
+// var PARSE_DEBUG = false;
 
 if ( PARSE_DEBUG ) {
   var GROWL_DELAY = 0;
 } else {
   var GROWL_DELAY = 3000;
 }
+
+var MODAL_DEBUG = true;
+// var MODAL_DEBUG = false;
 
 document.addEventListener('DOMContentLoaded', function() {
 
