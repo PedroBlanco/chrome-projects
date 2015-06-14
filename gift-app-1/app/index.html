@@ -20,7 +20,7 @@
 
   <div class="row nav-bar-row">
   <div class="navbar-header">
-  <a class="navbar-brand" href="/"><img src="images/gift_logo.png"/></a>
+  <a class="navbar-brand" href="/"><img alt="GIFT Format Editor" src="images/gift_logo.png"/></a>
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
   <ul class="nav navbar-nav">
@@ -34,7 +34,6 @@
         <li><a href="#">Ejemplo 3</a></li>
       </ul>
     </li>
-    <li class="active"><a id="menu-test-validator" data-toggle="modal" data-target="#modal-test-validator" href="#">Test de validación</a></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
     <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Configuración</a></li>
@@ -54,167 +53,110 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-5">
   <div id='left-panel' class="left-panel center-block">
-    <button type="button" id="hide-left-panel" class="btn btn-info" style="float: left;">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </button>
     <h3 class="text-info">Texto GIFT a procesar</h3>
+    <div class="button-bar">
+      <button type="button" id="hide-left-panel" class="btn btn-info" style="float: left;">
+        <span class="glyphicon glyphicon-chevron-left"></span>&nbsp; Ocultar
+      </button>
+    </div>
+    <br>
     <textarea class="form-control mono" id="text_gift_input" cols="30" rows="10"></textarea>
-    <br/>
-    <button class="form-control btn btn-primary" type="button" id="button_gift_input">
-      <span class="glyphicon glyphicon-forward"></span>&nbsp;Convertir GIFT a preguntas&nbsp;
+  </div>
+</div>
+<div class="col-sm-2 button-column">
+  <div id='gift-buttons-panel' class="left-panel">
+    <button class="form-control btn btn-info btn-block btn-high" type="button" id="button_gift_input">
+      <span class="glyphicon glyphicon-forward"></span><br/>Convertir<br/>a<br/>preguntas<br/>
       <span class="glyphicon glyphicon-forward"></span>
     </button>
-    <br/><br/>
-    <button class="form-control btn btn-primary" type="button" id="button_gift_output">
-      <span class="glyphicon glyphicon-backward"></span>&nbsp;Convertir preguntas a GIFT&nbsp;
+    <br>
+    <button class="form-control btn btn-info btn-block btn-high" type="button" id="button_gift_output">
+      <span class="glyphicon glyphicon-backward"></span><br/>Convertir<br/>a<br/>texto GIFT<br/>
       <span class="glyphicon glyphicon-backward"></span>
     </button>
   </div>
 </div>
-    <div class="col-sm-4">
+    <div class="col-sm-5">
   <div id='center-panel' class="center-panel center-block">
-    <button type="button" id="show-left-panel" class="btn btn-info" style="float: left; display: none;">
-      GIFT<span class="glyphicon glyphicon-chevron-right"></span>
-    </button>
-    <button type="button" id="show-right-panel" class="btn btn-info" style="float: right; display: none;">
-      <span class="glyphicon glyphicon-chevron-left"></span>Categorías
-    </button>
-    <div class="dropdown dropdown-questions-operations">
-      <a id="dropdown_questions" role="button" data-toggle="dropdown" class="btn btn-info" data-target="#" href="#">
-        <span class="glyphicon glyphicon-tasks"></span>
-      </a>
-      <!-- Multi-level dropdown from http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 -->
-      <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-        <li class="dropdown-submenu">
-          <a tabindex="-1" href="#"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Añadir...</a>
-          <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#" id="add-question-description">Descripción</a></li>
-            <li><a tabindex="-1" href="#" id="add-question-essay">Redacción</a></li>
-            <li class="dropdown-submenu">
-              <a href="#">Rellenar un hueco</a>
-              <ul class="dropdown-menu">
-                <li><a href="#" id="add-question-fill-blank-start">Al principio</a></li>
-                <li><a href="#" id="add-question-fill-blank-middle">Enmedio</a></li>
-              	<li><a href="#" id="add-question-fill-blank-end">Al final</a></li>
-              </ul>
-            </li>
-            <li><a tabindex="-1" href="#" id="add-question-matching">Emparejar</a></li>
-            <li><a tabindex="-1" href="#" id="add-question-true-false">Verdadero/Falso</a></li>
-            <li class="dropdown-submenu">
-              <a href="#">Numérica</a>
-              <ul class="dropdown-menu">
-                <li><a href="#" id="add-question-numeric-range">Con rango</a></li>
-                <li><a href="#" id="add-question-numeric-tolerance">Con tolerancia</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="divider"></li>
-        <li class="dropdown-submenu">
-          <a tabindex="-1" href="#"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar...</a>
-          <ul class="dropdown-menu">
-            <li><a tabindex="-1" href="#" id="remove-all-questions">Todas las preguntas</a></li>
-            <li><a tabindex="-1" href="#" id="remove-selected-questions">Las preguntas seleccionadas</a></li>
-          </ul>
-        </li>
-      </ul>
+    <h2 class="text-info">Lista de preguntas</h2>
+    <div class="button-bar">
+      <button type="button" id="show-left-panel" class="btn btn-info" style="float: left; display: none;">
+        Panel de edición&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+      </button>&nbsp;
+      <button type="button" id="show-right-panel" class="btn btn-info" style="float: right; display: none;">
+        <span class="glyphicon glyphicon-chevron-left"></span>Categorías
+      </button>
+      <div class="dropdown dropdown-questions-operations">
+        <a id="dropdown-add-questions" role="button" data-toggle="dropdown" class="btn btn-info" data-target="#" href="#">
+          <span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir pregunta
+        </a>
+        <!-- Multi-level dropdown from http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 -->
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+          <li><a tabindex="-1" href="#" id="add-question-description">Descripción</a></li>
+          <li><a tabindex="-1" href="#" id="add-question-essay">Redacción</a></li>
+          <li class="dropdown-submenu">
+            <a href="#">Rellenar un hueco</a>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="add-question-fill-blank-start">Al principio</a></li>
+              <li><a href="#" id="add-question-fill-blank-middle">Enmedio</a></li>
+            	<li><a href="#" id="add-question-fill-blank-end">Al final</a></li>
+            </ul>
+          </li>
+          <li><a tabindex="-1" href="#" id="add-question-matching">Emparejar</a></li>
+          <li><a tabindex="-1" href="#" id="add-question-true-false">Verdadero/Falso</a></li>
+          <li class="dropdown-submenu">
+            <a href="#">Numérica</a>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="add-question-numeric-range">Con rango</a></li>
+              <li><a href="#" id="add-question-numeric-tolerance">Con tolerancia</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      &nbsp;
+      <div class="dropdown dropdown-questions-operations">
+        <a id="dropdown-remove-questions" role="button" data-toggle="dropdown" class="btn btn-info" data-target="#" href="#">
+          <span class="glyphicon glyphicon-minus"></span>&nbsp;Eliminar
+        </a>
+        <!-- Multi-level dropdown from http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 -->
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+          <li><a tabindex="-1" href="#" id="remove-all-questions">Todas las preguntas</a></li>
+          <li><a tabindex="-1" href="#" id="remove-selected-questions">Las preguntas seleccionadas</a></li>
+        </ul>
+      </div>
     </div>
-    <h2 class="text-info">Lista de preguntas</h2><br>
     <div id="accordion1" class="panel-group">
-      <!-- <div class="group">
-        <div class="acc_title">
-            <span>Título: "Pregunta 1"</span>
-            <span class="pull-right label label-default">Tipo 1</span>
-        </div>
-        <div>
-          <p class="text-info question-comment">
-            Comentario
-          </p>
-          Pregunta
-        </div>
-      </div> -->
     </div>
     <div id="accordion1-empty" class="empty-place-info center-block text-info" style="display: none;">
-      <br><p>Aquí se muestran las preguntas para su gestión</p><br>
+      <br><p>Aquí se muestran las preguntas para su gestión</p>
     </div>
   </div>
 </div>
-    <div class="col-sm-4">
-  <div id='right-panel' class="right-panel center-block">
-    <button type="button" id="hide-right-panel" class="btn btn-info" style="float: right;">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </button>
-    <h3 class="text-info">Lista de categorías</h3>
-    <div id="accordion2">
-      <div class="group">
-        <div class="acc_title">
-            <span>Título: "Categoría 1"</span>
-            <span class="pull-right label label-default">Tipo 1</span>
-        </div>
-        <div>
-          <ul>
-            <li>Pregunta 1</li>
-            <li>Pregunta 2</li>
-            <li>Pregunta 3</li>
-          </ul>
-        </div>
-      </div>
-      <div class="group">
-        <div class="acc_title">
-            <span>Título: "Categoría 2"</span>
-            <span class="pull-right label label-default">Tipo 2</span>
-        </div>
-        <div>
-          <ul>
-            <li>Pregunta 4</li>
-            <li>Pregunta 5</li>
-            <li>Pregunta 6</li>
-          </ul>
-        </div>
-      </div>
-      <div class="group">
-        <div class="acc_title">
-            <span>Título: "Categoría 3"</span>
-            <span class="pull-right label label-default">Tipo 3</span>
-        </div>
-        <div>
-          <ul>
-            <li>Pregunta 7</li>
-            <li>Pregunta 8</li>
-            <li>Pregunta 9</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <br/>
-    <div id="test_destination"></div>
-    <br/>
   </div>
-</div>
-  </div>
-
-  <div class="row">
-  <footer class="col-sm-12">
-  <div class="col-sm-3 center-block">
-      <ul>
-        <li class="footer_title">informaci&oacute;n</li>
-        <li class="footer_text"><br/></li>
-        <li class="footer_text"><a href="https://github.com/PedroBlanco/central-proyectoASIR">web del proyecto</a></li>
-        <li class="footer_text">manual de usuario</li><!-- TODO -->
-        <li class="footer_text"><a href="https://github.com/PedroBlanco/gift-editor">github</a> / <a href="https://waffle.io/pedroblanco/central-proyectoasir">waffle.io</a></li>
-        <li class="footer_text">licencia</li><!-- TODO -->
-        <li class="footer_text"><br/></li>
-        <li class="footer_text" style="font-style: italic;">&copy; Pedro Blanco Wasmer 2015 - Proyecto Integrado Mayo 2015 para I.E.S. Gran Capitán</li>
-      </ul>
-  </div>
-</footer>
-</div>
 
 </div>
 
-<div class="modal fade" id="modal-add-question-description" question-type="description" role="dialog">
+<footer class="col-sm-12">
+  <div class="col-sm-1"></div>
+<div class="col-sm-3">
+    <ul>
+      <li class="footer_text"><a href="https://github.com/PedroBlanco/central-proyectoASIR">web del proyecto</a></li>
+      <li class="footer_text">manual de usuario</li><!-- TODO -->
+      <li class="footer_text"><a href="https://github.com/PedroBlanco/gift-editor">github</a> / <a href="https://waffle.io/pedroblanco/central-proyectoasir">waffle.io</a></li>
+      <li class="footer_text">licencia</li><!-- TODO -->
+    </ul>
+</div>
+<div class="col-sm-4"></div>
+<div class="col-sm-3">
+  <ul>
+    <li class="footer_text" style="font-style: italic;">&copy; Pedro Blanco Wasmer 2015 - Proyecto Integrado Mayo 2015 para I.E.S. Gran Capitán</li>
+  </ul>
+</div>
+<div class="col-sm-1"></div>
+
+  <div class="modal fade" id="modal-add-question-description" question-type="description" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -246,7 +188,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-add-question-essay" question-type="essay" role="dialog">
+  <div class="modal fade" id="modal-add-question-essay" question-type="essay" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -282,7 +224,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-add-question-fill-blank-end" question-type="fill-blank-end" role="dialog">
+  <div class="modal fade" id="modal-add-question-fill-blank-end" question-type="fill-blank-end" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -318,7 +260,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-add-question-fill-blank-middle" question-type="fill-blank-middle" role="dialog">
+  <div class="modal fade" id="modal-add-question-fill-blank-middle" question-type="fill-blank-middle" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -357,7 +299,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-add-question-fill-blank-start" question-type="fill-blank-start" role="dialog">
+  <div class="modal fade" id="modal-add-question-fill-blank-start" question-type="fill-blank-start" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -393,7 +335,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-add-question-matching" question-type="matching" role="dialog">
+  <div class="modal fade" id="modal-add-question-matching" question-type="matching" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -447,7 +389,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-add-question-numeric-range" question-type="numeric-range" role="dialog">
+  <div class="modal fade" id="modal-add-question-numeric-range" question-type="numeric-range" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -490,7 +432,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-add-question-numeric-tolerance" question-type="numeric-tolerance" role="dialog">
+  <div class="modal fade" id="modal-add-question-numeric-tolerance" question-type="numeric-tolerance" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -533,7 +475,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-add-question-true-false" question-type="true-false" role="dialog">
+  <div class="modal fade" id="modal-add-question-true-false" question-type="true-false" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -574,7 +516,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-description" question-type="description" role="dialog">
+  <div class="modal fade" id="modal-edit-question-description" question-type="description" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -607,7 +549,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-essay" role="dialog">
+  <div class="modal fade" id="modal-edit-question-essay" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -643,7 +585,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-fill-blank-end" question-type="fill-blank-end" role="dialog">
+  <div class="modal fade" id="modal-edit-question-fill-blank-end" question-type="fill-blank-end" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -679,7 +621,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-fill-blank-middle" question-type="fill-blank-middle" role="dialog">
+  <div class="modal fade" id="modal-edit-question-fill-blank-middle" question-type="fill-blank-middle" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -718,7 +660,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-fill-blank-start" question-type="fill-blank-start" role="dialog">
+  <div class="modal fade" id="modal-edit-question-fill-blank-start" question-type="fill-blank-start" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -754,7 +696,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-matching" question-type="matching" role="dialog">
+  <div class="modal fade" id="modal-edit-question-matching" question-type="matching" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -808,7 +750,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-numeric-range" question-type="numeric-range" role="dialog">
+  <div class="modal fade" id="modal-edit-question-numeric-range" question-type="numeric-range" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -850,7 +792,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-numeric-tolerance" question-type="numeric-tolerance" role="dialog">
+  <div class="modal fade" id="modal-edit-question-numeric-tolerance" question-type="numeric-tolerance" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -892,7 +834,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question-true-false" question-type="true-false" role="dialog">
+  <div class="modal fade" id="modal-edit-question-true-false" question-type="true-false" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -933,7 +875,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-remove-question" role="dialog">
+  <div class="modal fade" id="modal-remove-question" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -954,7 +896,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-remove-all-questions" role="dialog">
+  <div class="modal fade" id="modal-remove-all-questions" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -975,7 +917,7 @@
   </div>
 </div>
 
-<div id="modal-about" class="modal fade" role="dialog">
+  <div id="modal-about" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -1004,6 +946,7 @@
     </div>
   </div>
 </div>
+</footer>
 
 
 <!-- build:js scripts/vendor.js -->

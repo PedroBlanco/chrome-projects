@@ -1,7 +1,7 @@
 'use strict';
 
-var PARSE_DEBUG = true;
-// var PARSE_DEBUG = false;
+// var PARSE_DEBUG = true;
+var PARSE_DEBUG = false;
 
 if ( PARSE_DEBUG ) {
   var GROWL_DELAY = 0;
@@ -9,8 +9,8 @@ if ( PARSE_DEBUG ) {
   var GROWL_DELAY = 3000;
 }
 
-var MODAL_DEBUG = true;
-// var MODAL_DEBUG = false;
+// var MODAL_DEBUG = true;
+var MODAL_DEBUG = false;
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   console.log('Iniciando Editor GIFT: GIFT-APP-1');
 
-  test_growl_2 ();
+  // test_growl_2 ();
 
   init_accordion ();
 
