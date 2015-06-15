@@ -1,0 +1,106 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+<div class="container">
+<div class="jumbotron">
+
+
+<form data-toggle="validator" role="form">
+  <div class="form-group">
+    <label for="inputName" class="control-label">Name</label>
+    <input type="text" class="form-control" id="inputName" placeholder="Cina Saffary" required>
+  </div>
+  <div class="form-group">
+    <label for="inputTwitter" class="control-label">Twitter</label>
+    <div class="input-group">
+      <span class="input-group-addon">@</span>
+      <input type="text" pattern="^([_A-z0-9]){3,}$" maxlength="20" class="form-control" id="inputTwitter" placeholder="1000hz" required>
+    </div>
+    <span class="help-block with-errors">Up to 20 letters, numbers and underscores</span>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail" class="control-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+    <div class="help-block with-errors"></div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="control-label">Password</label>
+    <div class="form-group col-sm-6">
+      <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+      <span class="help-block">Minimum of 6 characters</span>
+    </div>
+    <div class="form-group col-sm-6">
+      <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+      <div class="help-block with-errors"></div>
+    </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="radio">
+      <label>
+        <input type="radio" name="underwear" required>
+        Boxers
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="underwear" required>
+        Briefs
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" id="terms" data-error="Before you wreck yourself" required>
+        Check yourself
+      </label>
+      <div class="help-block with-errors"></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+</div>
+</div>
+
+        <!-- build:js scripts/main.js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/bootstrap-validator/js/validator.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/hello.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/vendor/bootstrap.js -->
+        <script src="bower_components/bootstrap/js/affix.js"></script>
+        <script src="bower_components/bootstrap/js/alert.js"></script>
+        <script src="bower_components/bootstrap/js/dropdown.js"></script>
+        <script src="bower_components/bootstrap/js/tooltip.js"></script>
+        <script src="bower_components/bootstrap/js/modal.js"></script>
+        <script src="bower_components/bootstrap/js/transition.js"></script>
+        <script src="bower_components/bootstrap/js/button.js"></script>
+        <script src="bower_components/bootstrap/js/popover.js"></script>
+        <script src="bower_components/bootstrap/js/carousel.js"></script>
+        <script src="bower_components/bootstrap/js/scrollspy.js"></script>
+        <script src="bower_components/bootstrap/js/collapse.js"></script>
+        <script src="bower_components/bootstrap/js/tab.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
