@@ -55,6 +55,17 @@ var accordion_to_GIFT = function accordion_to_GIFT ( _selector )
 
         _full_question += '}\n\n';
       break;
+      case 'multiple-choice-single-answer':
+        _full_question = $(this).find('p[name="question-text"]').text();
+        _full_question += ' {\n';
+
+        $(this).find( 'span[name="incorrect-answer"]' ).each(function(){
+          _full_question += '~' + $(this).text() + ' \n';
+        });
+        _full_question += '=' + $(this).find( 'span[name="correct-answer"]' ).text();
+
+        _full_question += '\n}\n\n';
+      break;
       case 'fill-blank-start':
         _full_question += '{';
 
@@ -112,3 +123,35 @@ var accordion_to_GIFT = function accordion_to_GIFT ( _selector )
 
   return _GIFT_text;
 }
+
+
+// Tomado de http://html5-demos.appspot.com/static/a.download.html
+// TODO: ver #19
+var download_GIFT_File = function download_GIFT_file()
+{
+  var text = $('#text-gift-input').val();
+
+  const MIME_TYPE = 'text/plain';
+
+  window.URL = window.webkitURL || window.URL;
+
+  // var prevLink = output.querySelector('a');
+  /*
+  if (output) {
+    window.URL.revokeObjectURL(prevLink.href);
+    // output.innerHTML = '';
+    $('#gift_file').hide();
+  }*/
+
+  var bb = new Blob([text], {type: MIME_TYPE});
+
+  // Creación del enlace destino
+  // var a = document.createElement('a');
+  $('#gift-file').attr('download', 'GIFT_file.txt');
+  $('#gift-file').attr('href', window.URL.createObjectURL(bb) );
+
+  $('#gift-file').attr('downloadurl', [MIME_TYPE, $('#gift-file').attr('download'), $('#gift-file').attr('href')].join(':') );
+  // output.draggable = true; // Don't really need, but good practice.
+  // output.classList.add('dragout');
+  $('#gift-file').show();
+};

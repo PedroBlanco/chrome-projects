@@ -23,30 +23,18 @@
   <a class="navbar-brand" href="/"><img alt="GIFT Format Editor" src="images/gift_logo.png"/></a>
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
-  <ul class="nav navbar-nav">
-    <li><a href="#" data-toggle="modal" data-target="#modal-test-validator-B" >Home</a></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ejemplos
-      <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Ejemplo 1</a></li>
-        <li><a href="#">Ejemplo 2</a></li>
-        <li><a href="#">Ejemplo 3</a></li>
-      </ul>
-    </li>
-  </ul>
+  <!-- <ul class="nav navbar-nav">
+    <li><a href="#">Ejemplo 1</a></li>
+    <li><a href="#">Ejemplo 2</a></li>
+    <li><a href="#">Ejemplo 3</a></li>
+  </ul> -->
   <ul class="nav navbar-nav navbar-right">
-    <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Configuración</a></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <span class="glyphicon glyphicon-question-sign"></span> Ayuda
-        <span class="caret"></span>
-        <ul class="dropdown-menu">
-          <li><a id="menu-ayuda" href="#">Manual de usuario</a></li>
-          <li class="divider"></li>
-          <li><a id="menu-about" data-toggle="modal" data-target="#modal-about" href="#">Acerca de...</a></li>
-        </ul>
-      </a>
+    <li>
+      <a id="menu-ayuda" href="#">
+        <span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Manual de usuario</a>
+    </li>
+    <li>
+      <a id="menu-about" data-toggle="modal" data-target="#modal-about" href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Acerca de...</a>
     </li>
   </ul>
 </div>
@@ -55,42 +43,41 @@
   <div class="row">
     <div class="col-sm-5">
   <div id='left-panel' class="left-panel center-block">
-    <h3 class="text-info">Texto GIFT a procesar</h3>
+    <h3>Texto GIFT a procesar</h3>
     <div class="button-bar">
       <button type="button" id="hide-left-panel" class="btn btn-info" style="float: left;">
-        <span class="glyphicon glyphicon-chevron-left"></span>&nbsp; Ocultar
+        <span class="glyphicon glyphicon-chevron-left"></span>&nbsp; Ocultar Edición
+      </button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" id="download-gift-file" class="btn btn-info">
+        <span class="glyphicon glyphicon-download"></span>&nbsp; Generar archivo
       </button>
+      <a href="" style="display:none; margin-left:1em;" class="btn btn-info" id="gift-file"><span class="glyphicon glyphicon-download-alt"></span>&nbsp; Descargar archivo</a>
     </div>
     <br>
-    <textarea class="form-control mono" id="text_gift_input" cols="30" rows="10"></textarea>
+    <textarea class="form-control mono" id="text-gift-input" cols="30" rows="10"></textarea>
   </div>
 </div>
 <div class="col-sm-2 button-column">
   <div id='gift-buttons-panel' class="left-panel">
-    <button class="form-control btn btn-info btn-block btn-high" type="button" id="button_gift_input">
-      <span class="glyphicon glyphicon-forward"></span><br/>Convertir<br/>a<br/>preguntas<br/>
-      <span class="glyphicon glyphicon-forward"></span>
+    <button class="form-control btn btn-info btn-info-inverse" type="button" id="button_gift_input">Convertir texto&nbsp;&nbsp;<span class="glyphicon glyphicon-forward"></span>
     </button>
     <br>
-    <button class="form-control btn btn-info btn-block btn-high" type="button" id="button_gift_output">
-      <span class="glyphicon glyphicon-backward"></span><br/>Convertir<br/>a<br/>texto GIFT<br/>
-      <span class="glyphicon glyphicon-backward"></span>
+    <br>
+    <button class="form-control btn btn-info btn-info-inverse" type="button" id="button_gift_output">
+      <span class="glyphicon glyphicon-backward"></span>&nbsp;&nbsp;Convertir preguntas
     </button>
   </div>
 </div>
     <div class="col-sm-5">
   <div id='center-panel' class="center-panel center-block">
-    <h2 class="text-info">Lista de preguntas</h2>
+    <h3 >Lista de preguntas</h3>
     <div class="button-bar">
       <button type="button" id="show-left-panel" class="btn btn-info" style="float: left; display: none;">
-        Panel de edición&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
-      </button>&nbsp;
-      <button type="button" id="show-right-panel" class="btn btn-info" style="float: right; display: none;">
-        <span class="glyphicon glyphicon-chevron-left"></span>Categorías
-      </button>
+        Mostrar edición&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+      </button>&nbsp;&nbsp;&nbsp;&nbsp;
       <div class="dropdown dropdown-questions-operations">
         <a id="dropdown-add-questions" role="button" data-toggle="dropdown" class="btn btn-info" data-target="#" href="#">
-          <span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir pregunta
+          <span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir
         </a>
         <!-- Multi-level dropdown from http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 -->
         <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
@@ -113,9 +100,13 @@
               <li><a href="#" id="add-question-numeric-tolerance">Con tolerancia</a></li>
             </ul>
           </li>
+          <li><a tabindex="-1" href="#" id="add-question-multiple-choice-single-answer">1 respuesta entre varias opciones</a>
+          </li>
+          <li><a tabindex="-1" href="#" id="add-question-multiple-choice-multiple-answer">Varias respuestas entre varias opciones</a>
+          </li>
         </ul>
       </div>
-      &nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <div class="dropdown dropdown-questions-operations">
         <a id="dropdown-remove-questions" role="button" data-toggle="dropdown" class="btn btn-info" data-target="#" href="#">
           <span class="glyphicon glyphicon-minus"></span>&nbsp;Eliminar
@@ -123,14 +114,14 @@
         <!-- Multi-level dropdown from http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 -->
         <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
           <li><a tabindex="-1" href="#" id="remove-all-questions">Todas las preguntas</a></li>
-          <li><a tabindex="-1" href="#" id="remove-selected-questions">Las preguntas seleccionadas</a></li>
         </ul>
       </div>
     </div>
+    <br>
     <div id="accordion1" class="panel-group">
     </div>
     <div id="accordion1-empty" class="empty-place-info center-block text-info" style="display: none;">
-      <br><p>Aquí se muestran las preguntas para su gestión</p>
+      <br><p>Aquí se muestran las preguntas<br>para su gestión</p>
     </div>
   </div>
 </div>
@@ -516,6 +507,110 @@
   </div>
 </div>
 
+  <div class="modal fade" id="modal-add-question-multiple-choice-single-answer" question-type="multiple-choice-single-answer" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+        <h4 class="modal-title">Añadir pregunta: Una respuesta a elegir</h4>
+      </div>
+      <form role="form" id="form-add-question-multiple-choice-single-answer">
+        <div class="modal-body">
+         <div class="form-group">
+           <label for="form-add-question-multiple-choice-single-answer-title">Título:</label>
+           <input type="text" class="form-control" id="form-add-question-multiple-choice-single-answer-title" placeholder="Opcional">
+         </div>
+         <div class="form-group">
+           <label for="form-add-question-multiple-choice-single-answer-comment">Comentario:</label>
+           <input type="text" class="form-control" id="form-add-question-multiple-choice-single-answer-comment" placeholder="Opcional">
+         </div>
+         <div class="form-group">
+           <label for="form-add-question-multiple-choice-single-answer-text">Pregunta:</label>
+           <input type="text" class="form-control" id="form-add-question-multiple-choice-single-answer-text" placeholder="Obligatorio" required="required">
+           <br>
+         </div>
+         <div class="form-group multiple-choice-single-answer-correct">
+           <span class="glyphicon glyphicon-ok text-success"></span>&nbsp;&nbsp;&nbsp;
+           <input class="input-large" type="text" id="form-add-question-multiple-choice-single-answer-correct" placeholder="Respuesta correcta" value="" required="required"/>
+         </div>
+         <hr>
+         <div class="form-group multiple-choice-single-answer-incorrect">
+           <span class="glyphicon glyphicon-remove text-danger"></span>&nbsp;&nbsp;&nbsp;
+           <input class="input-large" type="text" id="form-add-question-multiple-choice-single-answer-incorrect-1" placeholder="Respuesta incorrecta" value="" required="required"/>
+         </div>
+         <hr>
+         <div class="form-group multiple-choice-single-answer-incorrect">
+           <span class="glyphicon glyphicon-remove text-danger"></span>&nbsp;&nbsp;&nbsp;
+           <input class="input-large" type="text" id="form-add-question-multiple-choice-single-answer-incorrect-2" placeholder="Respuesta incorrecta" value="" required="required"/>
+         </div>
+         <hr>
+         <button type="button" class="btn btn-info btn-block btn-new-incorrect-answer" id="form-add-question-multiple-choice-single-answer-new-incorrect-answer">Añadir nueva respuesta incorrecta</button>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="modal-add-question-multiple-choice-multiple-answer" question-type="multiple-choice-multiple-answer" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+        <h4 class="modal-title">Añadir pregunta: Varias respuestas a elegir</h4>
+      </div>
+      <form role="form" id="form-add-question-multiple-choice-multiple-answer">
+        <div class="modal-body">
+         <div class="form-group">
+           <label for="form-add-question-multiple-choice-multiple-answer-title">Título:</label>
+           <input type="text" class="form-control" id="form-add-question-multiple-choice-multiple-answer-title" placeholder="Opcional">
+         </div>
+         <div class="form-group">
+           <label for="form-add-question-multiple-choice-multiple-answer-comment">Comentario:</label>
+           <input type="text" class="form-control" id="form-add-question-multiple-choice-multiple-answer-comment" placeholder="Opcional">
+         </div>
+         <div class="form-group">
+           <label for="form-add-question-multiple-choice-multiple-answer-text">Pregunta:</label>
+           <input type="text" class="form-control" id="form-add-question-multiple-choice-multiple-answer-text" placeholder="Obligatorio" required="required">
+           <br>
+           <p class="form-control-static">Debe rellenar las tres parejas de campos:</p>
+         </div>
+         <div class="form-group multiple-choice-multiple-answer-pair" id="form-add-question-multiple-choice-multiple-answer-pair-1">
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-1-1" name="first" placeholder="" value="" required="required"/>
+           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-1-2" name="second" placeholder="" value="" required="required"/>
+         </div>
+         <hr>
+         <div class="form-group multiple-choice-multiple-answer-pair" id="form-add-question-multiple-choice-multiple-answer-pair-2">
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-2-1" name="first" placeholder="" value="" required="required"/>
+           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-2-2" name="second" placeholder="" value="" required="required"/>
+         </div>
+         <hr>
+         <div class="form-group multiple-choice-multiple-answer-pair" id="form-add-question-multiple-choice-multiple-answer-pair-3">
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-3-1" name="first" placeholder="" value="" required="required"/>
+           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-3-2" name="second" placeholder="" value="" required="required"/>
+         </div>
+         <hr>
+         <button type="button" class="btn btn-info btn-block btn-new-pair" id="form-add-question-multiple-choice-multiple-answer-new-pair">Añadir nueva pareja</button>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
   <div class="modal fade" id="modal-edit-question-description" question-type="description" role="dialog">
   <div class="modal-dialog">
 
@@ -875,6 +970,110 @@
   </div>
 </div>
 
+  <div class="modal fade" id="modal-edit-question-multiple-choice-single-answer" question-type="multiple-choice-single-answer" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+        <h4 class="modal-title">Editar pregunta: Una respuesta a elegir</h4>
+      </div>
+      <form role="form" id="form-edit-question-multiple-choice-single-answer">
+        <div class="modal-body">
+         <div class="form-group">
+           <label for="form-edit-question-multiple-choice-single-answer-title">Título:</label>
+           <input type="text" class="form-control" id="form-edit-question-multiple-choice-single-answer-title" placeholder="Opcional">
+         </div>
+         <div class="form-group">
+           <label for="form-edit-question-multiple-choice-single-answer-comment">Comentario:</label>
+           <input type="text" class="form-control" id="form-edit-question-multiple-choice-single-answer-comment" placeholder="Opcional">
+         </div>
+         <div class="form-group">
+           <label for="form-edit-question-multiple-choice-single-answer-text">Pregunta:</label>
+           <input type="text" class="form-control" id="form-edit-question-multiple-choice-single-answer-text" placeholder="Obligatorio" required="required">
+           <br>
+         </div>
+         <div class="form-group multiple-choice-single-answer-correct">
+           <span class="glyphicon glyphicon-ok text-success"></span>&nbsp;&nbsp;&nbsp;
+           <input class="input-large" type="text" id="form-edit-question-multiple-choice-single-answer-correct" placeholder="Respuesta correcta" value="" required="required"/>
+         </div>
+         <hr>
+         <div class="form-group multiple-choice-single-answer-incorrect">
+           <span class="glyphicon glyphicon-remove text-danger"></span>&nbsp;&nbsp;&nbsp;
+           <input class="input-large" type="text" id="form-edit-question-multiple-choice-single-answer-incorrect-1" placeholder="Respuesta incorrecta" value="" required="required"/>
+         </div>
+         <hr>
+         <div class="form-group multiple-choice-single-answer-incorrect">
+           <span class="glyphicon glyphicon-remove text-danger"></span>&nbsp;&nbsp;&nbsp;
+           <input class="input-large" type="text" id="form-edit-question-multiple-choice-single-answer-incorrect-2" placeholder="Respuesta incorrecta" value="" required="required"/>
+         </div>
+         <hr>
+         <button type="button" class="btn btn-info btn-block btn-new-incorrect-answer" id="form-edit-question-multiple-choice-single-answer-new-incorrect-answer">Añadir nueva respuesta incorrecta</button>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span>&nbsp;Guardar</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="modal-edit-question-multiple-choice-multiple-answer" question-type="multiple-choice-multiple-answer" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+        <h4 class="modal-title">Editar pregunta: Varias respuestas a elegir</h4>
+      </div>
+      <form role="form" id="form-edit-question-multiple-choice-multiple-answer">
+        <div class="modal-body">
+         <div class="form-group">
+           <label for="form-edit-question-multiple-choice-multiple-answer-title">Título:</label>
+           <input type="text" class="form-control" id="form-edit-question-multiple-choice-multiple-answer-title" placeholder="Opcional">
+         </div>
+         <div class="form-group">
+           <label for="form-edit-question-multiple-choice-multiple-answer-comment">Comentario:</label>
+           <input type="text" class="form-control" id="form-edit-question-multiple-choice-multiple-answer-comment" placeholder="Opcional">
+         </div>
+         <div class="form-group">
+           <label for="form-edit-question-multiple-choice-multiple-answer-text">Pregunta:</label>
+           <input type="text" class="form-control" id="form-edit-question-multiple-choice-multiple-answer-text" placeholder="Obligatorio" required="required">
+           <br>
+           <p class="form-control-static">Debe rellenar las tres parejas de campos:</p>
+         </div>
+         <div class="form-group multiple-choice-multiple-answer-pair" id="form-edit-question-multiple-choice-multiple-answer-pair-1">
+           <input class="input-small" name="first" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-1-1" name="first" placeholder="" value="" required="required"/>
+           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+           <input class="input-small" name="second" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-1-2" name="second" placeholder="" value="" required="required"/>
+         </div>
+         <hr>
+         <div class="form-group multiple-choice-multiple-answer-pair" id="form-edit-question-multiple-choice-multiple-answer-pair-2">
+           <input class="input-small" name="first" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-2-1" name="first" placeholder="" value="" required="required"/>
+           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+           <input class="input-small" name="second" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-2-2" name="second" placeholder="" value="" required="required"/>
+         </div>
+         <hr>
+         <div class="form-group multiple-choice-multiple-answer-pair" id="form-edit-question-multiple-choice-multiple-answer-pair-3">
+           <input class="input-small" name="first" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-3-1" name="first" placeholder="" value="" required="required"/>
+           <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+           <input class="input-small" name="second" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-3-2" name="second" placeholder="" value="" required="required"/>
+         </div>
+         <hr>
+         <button type="button" class="btn btn-info btn-block btn-new-pair" id="form-edit-question-multiple-choice-multiple-answer-new-pair">Añadir nueva pareja</button>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span>&nbsp;Guardar</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-share-alt"></span>&nbsp;Cancelar</button>&nbsp;
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
   <div class="modal fade" id="modal-remove-question" role="dialog">
   <div class="modal-dialog">
 
@@ -947,7 +1146,6 @@
   </div>
 </div>
 </footer>
-
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
