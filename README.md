@@ -6,9 +6,9 @@ El proyecto más desarrollado es una prueba de portabilidad de https://github.co
 
 ## Instalación
 
-1. Descargar el siguiente enlace en una carpeta: [gift app 1-10.crx](https://github.com/PedroBlanco/chrome-projects/blob/master/gift-app-1/package/gift%20app%201-10.crx?raw=true) (la versión actual es la 10).
+1. Descargar el siguiente enlace en una carpeta: [gift app 1-11.crx](https://github.com/PedroBlanco/chrome-projects/blob/master/gift-app-1/package/gift%20app%201-11.crx?raw=true) (la versión actual es la 11).
 2. Abrir en Google Chrome (o Chromium) la ventana de extensiones, mediante el botón que hay a la derecha de la barra de direcciones, en el menú "Más herramientas" -> "Extensiones", o introduciendo en una pestaña nueva la dirección ```chrome://extensions/```
-3. Arrastrar el archivo ```gift app 1-10.crx``` desde la carpeta donde nos lo hemos descargado, llevándolo  al interior de la ventana del navegador.
+3. Arrastrar el archivo ```gift app 1-11.crx``` desde la carpeta donde nos lo hemos descargado, llevándolo  al interior de la ventana del navegador.
 4. En la pequeña ventana emergente que nos aparece "Instalar nueva aplicación", pulsar sobre "Añadir".
 5. Debería aparecer una nueva entrada en la páginas de extensiones (con el fondo en gris) o directamente la lista de aplicaciones del paso siguiente.
 6. Si no se nos abre la ventana con la aplicaciones, para ejecutar la aplicación, pulsamos (normalmente en una pestaña nueva) en la barra de marcadores el botón de "Aplicaciones" (con un icono de 3x3 puntos cuadrados de colores), o podemos escribir en la barra de direcciones ```chrome://apps```. Debería aparecer la aplicación "GIFT Editor".
@@ -23,11 +23,12 @@ Para actualizar la aplicación sólo hay que seguir los pasos 1-3, pues tras arr
 
 ## Uso
 
-Todavía la aplicación contiene muchos elementos que no hacen nada (y que serán eliminados).
+Todavía la aplicación contiene algunos elementos que no hacen nada (y que serán configurados).
 
 Lo que debería funcionar:
 * Ocultar/mostrar el panel lateral.
-* Convertir el contenido del texto bajo "Texto GIFT a procesar" a preguntas en el panel central.
+* Convertir el contenido del texto en preguntas.
+* Convertir las preguntas a texto GIFT .
 * Reordenar (mediante el arrastre), desplegar y recoger las preguntas en el panel central.
 * En el menú de "Lista de preguntas":
   *  Eliminar todas las preguntas (con diálogo de confirmación).
@@ -35,3 +36,5 @@ Lo que debería funcionar:
 * Crear preguntas.
 * Editar preguntas.
 * Avisos emergentes temporales en la parte superior de la pantalla tras realizar algunas de las acciones.
+* Subir archivo al cuadro de texto.
+* Descargar en un archivo el contenido del cuadro de texto.

@@ -42,23 +42,27 @@
 
   <div class="row">
     <div class="col-sm-5">
-  <div id='left-panel' class="left-panel center-block">
+  <div id="left-panel" class="left-panel center-block">
     <h3>Texto GIFT a procesar</h3>
     <div class="button-bar">
       <button type="button" id="hide-left-panel" class="btn btn-info" style="float: left;">
         <span class="glyphicon glyphicon-chevron-left"></span>&nbsp; Ocultar Edición
       </button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" id="upload-gift-file" class="btn btn-info">
+        <span class="glyphicon glyphicon-upload"></span>&nbsp; Subir archivo
+      </button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="real-upload-gift-file" type="file" accept="text/plain" style="display:none;">
       <button type="button" id="download-gift-file" class="btn btn-info">
         <span class="glyphicon glyphicon-download"></span>&nbsp; Generar archivo
       </button>
-      <a href="" style="display:none; margin-left:1em;" class="btn btn-info" id="gift-file"><span class="glyphicon glyphicon-download-alt"></span>&nbsp; Descargar archivo</a>
+      <a href="" style="display:none;" class="btn btn-info" id="gift-file"><span class="glyphicon glyphicon-download-alt"></span>&nbsp; Descargar archivo</a>
     </div>
     <br>
     <textarea class="form-control mono" id="text-gift-input" cols="30" rows="10"></textarea>
   </div>
 </div>
 <div class="col-sm-2 button-column">
-  <div id='gift-buttons-panel' class="left-panel">
+  <div id="gift-buttons-panel" class="left-panel">
     <button class="form-control btn btn-info btn-info-inverse" type="button" id="button_gift_input">Convertir texto&nbsp;&nbsp;<span class="glyphicon glyphicon-forward"></span>
     </button>
     <br>
@@ -580,27 +584,26 @@
            <label for="form-add-question-multiple-choice-multiple-answer-text">Pregunta:</label>
            <input type="text" class="form-control" id="form-add-question-multiple-choice-multiple-answer-text" placeholder="Obligatorio" required="required">
            <br>
-           <p class="form-control-static">Debe rellenar las tres parejas de campos:</p>
          </div>
          <div class="form-group multiple-choice-multiple-answer-pair" id="form-add-question-multiple-choice-multiple-answer-pair-1">
-           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-1-1" name="first" placeholder="" value="" required="required"/>
+           <input class="input-mir" type="number" id="form-add-question-multiple-choice-multiple-answer-pair-1-percentage" name="percentage" placeholder="Porcentaje" value="" required="required"/>%
            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-1-2" name="second" placeholder="" value="" required="required"/>
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-1-answer" name="answer" placeholder="Respuesta" value="" required="required"/>
          </div>
          <hr>
          <div class="form-group multiple-choice-multiple-answer-pair" id="form-add-question-multiple-choice-multiple-answer-pair-2">
-           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-2-1" name="first" placeholder="" value="" required="required"/>
+           <input class="input-mir" type="number" id="form-add-question-multiple-choice-multiple-answer-pair-2-percentage" name="percentage" placeholder="Porcentaje" value="" required="required"/>%
            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-2-2" name="second" placeholder="" value="" required="required"/>
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-2-answer" name="answer" placeholder="Respuesta" value="" required="required"/>
          </div>
          <hr>
          <div class="form-group multiple-choice-multiple-answer-pair" id="form-add-question-multiple-choice-multiple-answer-pair-3">
-           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-3-1" name="first" placeholder="" value="" required="required"/>
+           <input class="input-mir" type="number" id="form-add-question-multiple-choice-multiple-answer-pair-3-percentage" name="percentage" placeholder="Porcentaje" value="" required="required"/>%
            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-3-2" name="second" placeholder="" value="" required="required"/>
+           <input class="input-small" type="text" id="form-add-question-multiple-choice-multiple-answer-pair-3-answer" name="answer" placeholder="Respuesta" value="" required="required"/>
          </div>
          <hr>
-         <button type="button" class="btn btn-info btn-block btn-new-pair" id="form-add-question-multiple-choice-multiple-answer-new-pair">Añadir nueva pareja</button>
+         <button type="button" class="btn btn-info btn-block btn-new-pair" id="form-add-question-multiple-choice-multiple-answer-new-pair">Añadir nueva respuesta</button>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span>&nbsp;Añadir</button>
@@ -1043,27 +1046,26 @@
            <label for="form-edit-question-multiple-choice-multiple-answer-text">Pregunta:</label>
            <input type="text" class="form-control" id="form-edit-question-multiple-choice-multiple-answer-text" placeholder="Obligatorio" required="required">
            <br>
-           <p class="form-control-static">Debe rellenar las tres parejas de campos:</p>
          </div>
          <div class="form-group multiple-choice-multiple-answer-pair" id="form-edit-question-multiple-choice-multiple-answer-pair-1">
-           <input class="input-small" name="first" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-1-1" name="first" placeholder="" value="" required="required"/>
+           <input class="input-mir" type="number" id="form-edit-question-multiple-choice-multiple-answer-pair-1-percentage" name="percentage" placeholder="Porcentaje" value="" required="required"/>%
            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" name="second" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-1-2" name="second" placeholder="" value="" required="required"/>
+           <input class="input-small" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-1-answer" name="answer" placeholder="Respuesta" value="" required="required"/>
          </div>
          <hr>
          <div class="form-group multiple-choice-multiple-answer-pair" id="form-edit-question-multiple-choice-multiple-answer-pair-2">
-           <input class="input-small" name="first" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-2-1" name="first" placeholder="" value="" required="required"/>
+           <input class="input-mir" type="number" id="form-edit-question-multiple-choice-multiple-answer-pair-2-percentage" name="percentage" placeholder="Porcentaje" value="" required="required"/>%
            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" name="second" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-2-2" name="second" placeholder="" value="" required="required"/>
+           <input class="input-small" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-2-answer" name="answer" placeholder="Respuesta" value="" required="required"/>
          </div>
          <hr>
          <div class="form-group multiple-choice-multiple-answer-pair" id="form-edit-question-multiple-choice-multiple-answer-pair-3">
-           <input class="input-small" name="first" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-3-1" name="first" placeholder="" value="" required="required"/>
+           <input class="input-mir" type="number" id="form-edit-question-multiple-choice-multiple-answer-pair-3-percentage" name="percentage" placeholder="Porcentaje" value="" required="required"/>%
            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-           <input class="input-small" name="second" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-3-2" name="second" placeholder="" value="" required="required"/>
+           <input class="input-small" type="text" id="form-edit-question-multiple-choice-multiple-answer-pair-3-answer" name="answer" placeholder="Respuesta" value="" required="required"/>
          </div>
          <hr>
-         <button type="button" class="btn btn-info btn-block btn-new-pair" id="form-edit-question-multiple-choice-multiple-answer-new-pair">Añadir nueva pareja</button>
+         <button type="button" class="btn btn-info btn-block btn-new-pair" id="form-edit-question-multiple-choice-multiple-answer-new-pair">Añadir nueva respuesta</button>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-ok"></span>&nbsp;Guardar</button>
